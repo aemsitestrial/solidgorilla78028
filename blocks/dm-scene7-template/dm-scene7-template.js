@@ -31,8 +31,9 @@ function getUrlFromRow(row) {
  * @returns {string}
  */
 function getTemplateUrl(block, urlRow) {
-  const pasted = getFieldText(block, 'image', urlRow)?.trim() || '';
-  if (pasted) return pasted;
+  const ueRow = block.querySelector('[data-aue-prop="image"]');
+  const authoredUrl = getUrlFromRow(ueRow);
+  if (authoredUrl) return authoredUrl;
   return getUrlFromRow(urlRow) || '';
 }
 
