@@ -54,7 +54,7 @@ function getTemplateUrl(block, urlRow) {
 function isScene7IsImageUrl(href) {
   try {
     const u = new URL(href, window.location.href);
-    return /\/is\/image\//i.test(u.pathname);
+    return /\.scene7\.com$/i.test(u.hostname) && /\/is\/image\//i.test(u.pathname);
   } catch {
     return false;
   }

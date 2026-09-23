@@ -35,14 +35,14 @@ Examples:
 ```text
 https://s7d1.scene7.com/is/image/S7learn/backpack?wid=1600&hei=900&qlt=80&fmt=jpg
 https://s7d1.scene7.com/is/image/S7learn/backpack?wid=1000&hei=1000&qlt=85&fmt=jpeg
+https://s7d1.scene7.com/is/image/S7learn/backpack?wid=800&hei=500&qlt=75&fmt=png
 https://s7d1.scene7.com/is/image/S7learn/backpack?wid=800&hei=500&qlt=75&fmt=webp
 ```
 
 The validation logic checks:
-- the hostname ends with `.scene7.com`
 - the pathname contains `/is/image/`
 
-If either condition is not met, the block will not render.
+If the URL does not contain `/is/image/`, the block will not render.
 
 ---
 
@@ -88,7 +88,7 @@ This means it behaves like a regular image banner or product graphic.
 ### Example 1: Hero banner
 
 ```text
-Image: https://images.company.scene7.com/is/image/brand/hero-banner?wid=1600&hei=900&qlt=80&fmt=jpg
+Image: https://s7d1.scene7.com/is/image/S7learn/backpack?wid=1600&hei=900&qlt=80&fmt=jpg
 Alt: Hero banner
 ```
 
@@ -97,7 +97,7 @@ Result: The image appears as a wide banner on the page.
 ### Example 2: Product image
 
 ```text
-Image: https://images.company.scene7.com/is/image/brand/product-shot?wid=800&hei=800&qlt=85&fmt=png
+Image: https://s7d1.scene7.com/is/image/S7learn/backpack?wid=800&hei=800&qlt=85&fmt=png
 Alt: Product shot
 ```
 
@@ -116,6 +116,6 @@ Result: This is not a Scene7 `/is/image/` URL, so it will not render in this blo
 
 ## Summary
 
-The DM Scene7 Template block is a static image renderer for Dynamic Media Scene7 assets. It is meant for banners, product images, and editorial graphics. The URL must be a valid Scene7 `/is/image/` URL, and the block outputs a responsive image element with alt text.
+The DM Scene7 Template block is a static image renderer for Dynamic Media Scene7 assets. It is meant for banners, product images, and editorial graphics. The URL must be a valid Dynamic Media `/is/image/` URL, and the block outputs a responsive image element with alt text.
 
 Use this block for still images only. Use the DM Video block for video playback.
