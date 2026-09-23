@@ -11,6 +11,12 @@ function getFieldText(block, propName, positionalRow) {
   return positionalRow?.querySelector('div')?.textContent?.trim() || '';
 }
 
+function getFirstUrlFromText(text) {
+  if (!text) return '';
+  const match = text.match(/https?:\/\/[^\s<>"']+/i);
+  return match ? match[0] : '';
+}
+
 /**
  * @param {Element | null | undefined} row
  * @returns {string}
@@ -21,7 +27,7 @@ function getUrlFromRow(row) {
   if (anchor?.href) return anchor.href;
   const img = row.querySelector('img[src]');
   if (img?.src) return img.src;
-  return row.textContent?.trim() || '';
+  return getFirstUrlFromText(row.textContent?.trim());
 }
 
 /**
@@ -34,6 +40,10 @@ function getTemplateUrl(block, urlRow) {
   const ueRow = block.querySelector('[data-aue-prop="image"]');
   const authoredUrl = getUrlFromRow(ueRow);
   if (authoredUrl) return authoredUrl;
+
+  const pasted = getFirstUrlFromText(getFieldText(block, 'image', urlRow));
+  if (pasted) return pasted;
+
   return getUrlFromRow(urlRow) || '';
 }
 
@@ -43,8 +53,8 @@ function getTemplateUrl(block, urlRow) {
  */
 function isScene7IsImageUrl(href) {
   try {
-    const u = new URL(href);
-    return /\.scene7\.com$/i.test(u.hostname) && /\/is\/image\//i.test(u.pathname);
+    const u = new URL(href, window.location.href);
+    return /\/is\/image\//i.test(u.pathname);
   } catch {
     return false;
   }
