@@ -41,6 +41,13 @@
           "name": "autoplay",
           "label": "Autoplay",
           "value": false
+        },
+        {
+          "component": "boolean",
+          "valueType": "boolean",
+          "name": "loop",
+          "label": "Play in loop",
+          "value": false
         }
       ]
     }

@@ -58,6 +58,7 @@ The block uses the following fields:
 - `thumbnail`: optional poster image
 - `videoUrl`: required video URL
 - `autoplay`: optional toggle to start playback automatically
+- `loop`: optional toggle to replay the video continuously after it ends
 
 This is defined in the component model and the block metadata.
 
@@ -71,6 +72,7 @@ The block decides how to render the video using the URL path:
 - If the URL ends with a supported video extension, it uses native video mode
 - For Dynamic Media asset URLs using `/as/...mp4`, it removes some non-essential query parameters before rendering
 - If `autoplay` is enabled, native videos are muted and set to autoplay; `/play` iframe URLs receive autoplay-related query parameters
+- If `loop` is enabled, native videos receive the `loop` attribute; `/play` iframe URLs receive `loop=1`
 
 This behavior is implemented in `resolveDmVideoDelivery()` inside `blocks/dm-video/dm-video.js`.
 

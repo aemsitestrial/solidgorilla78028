@@ -99,12 +99,17 @@ function resolveDmVideoDelivery(rawUrl) {
   }
 }
 
-function withAutoplayParams(rawUrl) {
+function withPlaybackParams(rawUrl, autoplay, loop) {
   try {
     const u = new URL(rawUrl, window.location.href);
-    u.searchParams.set('autoplay', '1');
-    u.searchParams.set('muted', '1');
-    u.searchParams.set('playsinline', '1');
+    if (autoplay) {
+      u.searchParams.set('autoplay', '1');
+      u.searchParams.set('muted', '1');
+      u.searchParams.set('playsinline', '1');
+    }
+    if (loop) {
+      u.searchParams.set('loop', '1');
+    }
     return u.href;
   } catch (e) {
     return rawUrl;
@@ -128,6 +133,7 @@ export default function decorate(block) {
   const thumbnailUrl = getPosterUrlFromRow(rows[0]);
   const rawVideoUrl = getUrlFromRow(rows[1]);
   const autoplay = getAuthoredBoolean(block, 'autoplay', rows[2]) && !prefersReducedMotion.matches;
+  const loop = getAuthoredBoolean(block, 'loop', rows[3]);
 
   if (!rawVideoUrl) {
     return;
@@ -142,7 +148,7 @@ export default function decorate(block) {
     wrap.className = 'dm-video-iframe-wrap';
     const iframe = document.createElement('iframe');
     iframe.className = 'dm-video-iframe';
-    iframe.src = autoplay ? withAutoplayParams(videoHref) : videoHref;
+    iframe.src = autoplay || loop ? withPlaybackParams(videoHref, autoplay, loop) : videoHref;
     iframe.title = 'Video';
     iframe.setAttribute('loading', 'lazy');
     iframe.setAttribute('allowfullscreen', '');
@@ -160,6 +166,11 @@ export default function decorate(block) {
   video.controls = true;
   video.preload = 'metadata';
   video.playsInline = true;
+  video.loop = loop;
+
+  if (loop) {
+    video.setAttribute('loop', '');
+  }
 
   if (autoplay) {
     video.autoplay = true;
