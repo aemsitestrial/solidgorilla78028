@@ -4,8 +4,8 @@ Your project's description...
 
 ## Environments
 
-- Preview: https://main--astuteoctopus06379--aemsitestrial.aem.page/
-- Live: https://main--astuteoctopus06379--aemsitestrial.aem.live/
+- Preview: https://main--solidgorilla78028--aemsitestrial.aem.page/
+- Live: https://main--solidgorilla78028--aemsitestrial.aem.live/
 
 ## Documentation
 
