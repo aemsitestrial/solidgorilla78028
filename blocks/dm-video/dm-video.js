@@ -4,10 +4,34 @@
  * - Direct progressive URLs (e.g. …/as/…mp4) → native <video>.
  */
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 function getFirstUrlFromText(text) {
   if (!text) return '';
   const match = text.match(/https?:\/\/[^\s<>"']+/i);
   return match ? match[0] : '';
+}
+
+function isTruthy(value) {
+  return ['true', '1', 'yes', 'on', 'autoplay'].includes(String(value || '').trim().toLowerCase());
+}
+
+function getBooleanFromRow(row) {
+  if (!row) return false;
+
+  const checkbox = row.querySelector('input[type="checkbox"]');
+  if (checkbox) return checkbox.checked;
+
+  const ariaChecked = row.querySelector('[aria-checked]')?.getAttribute('aria-checked');
+  if (ariaChecked) return isTruthy(ariaChecked);
+
+  return isTruthy(row.textContent);
+}
+
+function getAuthoredBoolean(block, propName, positionalRow) {
+  const ueRow = block.querySelector(`[data-aue-prop="${propName}"]`);
+  if (ueRow) return getBooleanFromRow(ueRow);
+  return getBooleanFromRow(positionalRow);
 }
 
 function getUrlFromRow(row) {
@@ -75,6 +99,18 @@ function resolveDmVideoDelivery(rawUrl) {
   }
 }
 
+function withAutoplayParams(rawUrl) {
+  try {
+    const u = new URL(rawUrl, window.location.href);
+    u.searchParams.set('autoplay', '1');
+    u.searchParams.set('muted', '1');
+    u.searchParams.set('playsinline', '1');
+    return u.href;
+  } catch (e) {
+    return rawUrl;
+  }
+}
+
 function getMimeTypeFromUrl(url) {
   try {
     const pathname = new URL(url, window.location.href).pathname.toLowerCase();
@@ -91,6 +127,7 @@ export default function decorate(block) {
   const rows = [...block.children];
   const thumbnailUrl = getPosterUrlFromRow(rows[0]);
   const rawVideoUrl = getUrlFromRow(rows[1]);
+  const autoplay = getAuthoredBoolean(block, 'autoplay', rows[2]) && !prefersReducedMotion.matches;
 
   if (!rawVideoUrl) {
     return;
@@ -105,7 +142,7 @@ export default function decorate(block) {
     wrap.className = 'dm-video-iframe-wrap';
     const iframe = document.createElement('iframe');
     iframe.className = 'dm-video-iframe';
-    iframe.src = videoHref;
+    iframe.src = autoplay ? withAutoplayParams(videoHref) : videoHref;
     iframe.title = 'Video';
     iframe.setAttribute('loading', 'lazy');
     iframe.setAttribute('allowfullscreen', '');
@@ -123,6 +160,14 @@ export default function decorate(block) {
   video.controls = true;
   video.preload = 'metadata';
   video.playsInline = true;
+
+  if (autoplay) {
+    video.autoplay = true;
+    video.muted = true;
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+  }
 
   if (thumbnailUrl) {
     video.poster = thumbnailUrl;

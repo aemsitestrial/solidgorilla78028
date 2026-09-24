@@ -34,6 +34,13 @@
           "name": "videoUrl",
           "label": "DM video URL (/play player or direct .mp4)",
           "required": true
+        },
+        {
+          "component": "boolean",
+          "valueType": "boolean",
+          "name": "autoplay",
+          "label": "Autoplay",
+          "value": false
         }
       ]
     }
