@@ -3,3 +3,5 @@ mountpoints:
     url: "https://author-p153710-e1614654.adobeaemcloud.com/bin/franklin.delivery/aemsitestrial/solidgorilla78028/main"
     type: "markup"
     suffix: ".html"
+  /docs:
+    url: "https://docs.google.com/document/d/1RiGUK1VZbWjtcf3gyLBbcDrJJDqhCJyuQL3imiAt8ZM/edit?usp=drivesdk"
