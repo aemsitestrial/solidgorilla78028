@@ -25,13 +25,14 @@
           "component": "reference",
           "valueType": "string",
           "name": "thumbnail",
-          "label": "Thumbnail / Poster Image"
+          "label": "Thumbnail / Poster Image",
+          "multi": false
         },
         {
           "component": "text",
           "valueType": "string",
           "name": "videoUrl",
-          "label": "DM Video URL",
+          "label": "DM Video URL (/play player or direct .mp4)",
           "required": true
         },
         {
@@ -45,7 +46,7 @@
           "component": "boolean",
           "valueType": "boolean",
           "name": "loop",
-          "label": "Loop",
+          "label": "Play in Loop",
           "value": false
         },
         {
@@ -73,57 +74,6 @@
           "valueType": "string",
           "name": "captionsUrl",
           "label": "Captions URL (.vtt)"
-        },
-        {
-          "component": "select",
-          "valueType": "string",
-          "name": "aspectRatio",
-          "label": "Aspect Ratio",
-          "value": "16:9",
-          "options": [
-            {
-              "name": "16:9",
-              "value": "16:9"
-            },
-            {
-              "name": "4:3",
-              "value": "4:3"
-            },
-            {
-              "name": "1:1",
-              "value": "1:1"
-            },
-            {
-              "name": "21:9",
-              "value": "21:9"
-            }
-          ]
-        },
-        {
-          "component": "boolean",
-          "valueType": "boolean",
-          "name": "fullWidth",
-          "label": "Full Width",
-          "value": false
-        },
-        {
-          "component": "number",
-          "valueType": "number",
-          "name": "startTime",
-          "label": "Start Time (Seconds)"
-        },
-        {
-          "component": "number",
-          "valueType": "number",
-          "name": "endTime",
-          "label": "End Time (Seconds)"
-        },
-        {
-          "component": "boolean",
-          "valueType": "boolean",
-          "name": "showDownload",
-          "label": "Show Download Button",
-          "value": false
         }
       ]
     }
