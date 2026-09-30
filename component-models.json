@@ -6001,6 +6001,89 @@
     ]
   },
   {
+    "id": "tarun-header",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "tcsLogo",
+        "label": "TCS Logo Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tcsLogoLink",
+        "label": "TCS Logo Link URL",
+        "value": "/"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "tataLogo",
+        "label": "TATA Logo Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tataLogoLink",
+        "label": "TATA Logo Link URL",
+        "value": "https://www.tata.com"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaLabel",
+        "label": "CTA Button Label"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaLink",
+        "label": "CTA Button Link"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "ctaTarget",
+        "label": "Open CTA in New Tab",
+        "value": "_self",
+        "options": [
+          {
+            "name": "No (_self)",
+            "value": "_self"
+          },
+          {
+            "name": "Yes (_blank)",
+            "value": "_blank"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "headerStyle",
+        "label": "Header Style Variant",
+        "value": "default",
+        "options": [
+          {
+            "name": "Default White",
+            "value": "default"
+          },
+          {
+            "name": "Dark Mode",
+            "value": "dark"
+          },
+          {
+            "name": "Transparent Overlay",
+            "value": "transparent"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "teaser",
     "fields": [
       {

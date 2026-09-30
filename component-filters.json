@@ -126,6 +126,10 @@
     ]
   },
   {
+    "id": "tarun-header",
+    "components": []
+  },
+  {
     "id": "video",
     "components": []
   }
