@@ -1,4 +1,6 @@
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const prefersReducedMotion = window.matchMedia
+  ? window.matchMedia('(prefers-reduced-motion: reduce)')
+  : { matches: false };
 
 function getFirstUrlFromText(text) {
   if (!text) return '';
@@ -81,6 +83,16 @@ function getUrlFromRow(row) {
   return getFirstUrlFromText(row.textContent?.trim());
 }
 
+function getUrlValueFromBlock(block, propName, fallbackRow) {
+  const authoredRow = block.querySelector(`[data-aue-prop="${propName}"]`);
+
+  if (authoredRow) {
+    return getUrlFromRow(authoredRow);
+  }
+
+  return getUrlFromRow(fallbackRow);
+}
+
 function getPosterUrlFromRow(row) {
   if (!row) return '';
 
@@ -161,8 +173,8 @@ function getMimeTypeFromUrl(url) {
 export default function decorate(block) {
   const rows = [...block.children];
 
-  const thumbnailUrl = getPosterUrlFromRow(rows[0]);
-  const rawVideoUrl = getUrlFromRow(rows[1]);
+  const thumbnailUrl = getUrlValueFromBlock(block, 'thumbnail', rows[0]) || getPosterUrlFromRow(rows[0]);
+  const rawVideoUrl = getUrlValueFromBlock(block, 'videoUrl', rows[1]);
 
   const autoplay = getAuthoredBoolean(block, 'autoplay', rows[2])
     && !prefersReducedMotion.matches;
