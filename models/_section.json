@@ -65,7 +65,8 @@
         "text",
         "title",
 	"teaser",
-        "video"
+        "video",
+        "tcs-header"
       ]
     }
   ]

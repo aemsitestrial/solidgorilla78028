@@ -6084,6 +6084,40 @@
     ]
   },
   {
+    "id": "tcs-header",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "tcsLogo",
+        "label": "TCS Logo",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "tataLogo",
+        "label": "Tata Logo",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "language",
+        "label": "Language",
+        "value": "Global (EN)"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "menu",
+        "label": "Menu Links",
+        "description": "Add each mega menu link as a separate linked paragraph.",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "teaser",
     "fields": [
       {

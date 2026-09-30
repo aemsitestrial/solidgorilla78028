@@ -1,0 +1,210 @@
+.tcs-header-container {
+    background-color: #fff;
+}
+
+.tcs-header-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.tcs-header {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 152px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background-color: #fff;
+}
+
+.tcs-header p {
+    margin: 0;
+}
+
+.tcs-header-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tcs-header-brand img {
+    display: block;
+}
+
+.tcs-header-tcs-logo img {
+    width: 146px;
+    height: 34.8px;
+    object-fit: contain;
+}
+
+.tcs-header-tata-logo img {
+    width: 50px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.tcs-header-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.tcs-header-logo-link:hover,
+.tcs-header-logo-link:focus,
+.tcs-header-logo-link:focus-visible {
+    text-decoration: none;
+    background: transparent;
+}
+
+.tcs-header-tools {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.tcs-header-language-select {
+    position: relative;
+}
+
+.tcs-header-language-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--text-color);
+    font-family: var(--body-font-family);
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.tcs-header-language-button:hover,
+.tcs-header-language-button:focus,
+.tcs-header-language-button:focus-visible,
+.tcs-header-language-button:active {
+    background: transparent !important;
+    color: var(--text-color) !important;
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.tcs-header-language-button::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentcolor;
+    border-bottom: 2px solid currentcolor;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.tcs-header-language-button[aria-expanded="true"]::after {
+    transform: rotate(225deg);
+}
+
+.tcs-header-hamburger {
+    width: 28px;
+    height: 22px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.tcs-header-hamburger:hover,
+.tcs-header-hamburger:focus,
+.tcs-header-hamburger:focus-visible,
+.tcs-header-hamburger:active {
+    background: transparent !important;
+    outline: none;
+    box-shadow: none;
+}
+
+.tcs-header-hamburger-icon,
+.tcs-header-hamburger-icon::before,
+.tcs-header-hamburger-icon::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+}
+
+.tcs-header-hamburger-icon {
+    position: relative;
+    margin: 10px 0;
+}
+
+.tcs-header-hamburger-icon::before {
+    position: absolute;
+    top: -8px;
+}
+
+.tcs-header-hamburger-icon::after {
+    position: absolute;
+    top: 8px;
+}
+
+.tcs-header-hamburger[aria-expanded="true"] .tcs-header-hamburger-icon {
+    background-color: transparent;
+}
+
+.tcs-header-hamburger[aria-expanded="true"] .tcs-header-hamburger-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.tcs-header-hamburger[aria-expanded="true"] .tcs-header-hamburger-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.tcs-header-menu {
+    display: none;
+}
+
+.tcs-header-menu[aria-expanded="true"] {
+    position: absolute;
+    z-index: 1;
+    inset: 100% 0 auto;
+    display: block;
+    box-sizing: border-box;
+    max-height: calc(100vh - 152px);
+    overflow-y: auto;
+    padding: 32px 40px;
+    background-color: #fff;
+    border-top: 1px solid var(--light-color);
+    box-shadow: 0 12px 24px rgb(0 0 0 / 12%);
+}
+
+@media (width <=1024px) {
+    .tcs-header-language-select {
+        display: none;
+    }
+
+    .tcs-header-tools {
+        gap: 0;
+    }
+
+    .tcs-header-tcs-logo img {
+        width: 81.25px;
+        height: 19.37px;
+        object-fit: contain;
+    }
+
+    .tcs-header-tata-logo img {
+        width: 27.83px;
+        height: 24px;
+        object-fit: contain;
+    }
+}
