@@ -185,9 +185,11 @@ export default function decorate(block) {
 
   const muted = getAuthoredBoolean(block, 'muted', rows[5]);
 
-  const videoTitle = getFieldValue(block, 'videoTitle', 'Video');
-
-  const captionsUrl = getFieldValue(block, 'captionsUrl', '');
+  const preload = ['none', 'metadata', 'auto'].includes(
+    String(getFieldValue(block, 'preload', 'metadata')).trim().toLowerCase(),
+  )
+    ? String(getFieldValue(block, 'preload', 'metadata')).trim().toLowerCase()
+    : 'metadata';
 
   if (!rawVideoUrl) {
     return;
@@ -208,7 +210,7 @@ export default function decorate(block) {
       ? withPlaybackParams(videoHref, autoplay, loop)
       : videoHref;
 
-    iframe.title = videoTitle;
+    iframe.title = 'Embedded video';
 
     iframe.setAttribute('loading', 'lazy');
     iframe.setAttribute('allowfullscreen', '');
@@ -228,12 +230,12 @@ export default function decorate(block) {
 
   video.className = 'dm-video-player';
   video.controls = controls;
-  video.preload = 'metadata';
+  video.preload = preload;
   video.playsInline = true;
   video.loop = loop;
   video.muted = muted || autoplay;
 
-  video.setAttribute('aria-label', videoTitle);
+  video.setAttribute('aria-label', 'Embedded video');
 
   if (autoplay) {
     video.autoplay = true;
@@ -253,17 +255,6 @@ export default function decorate(block) {
   }
 
   video.append(source);
-
-  if (captionsUrl) {
-    const track = document.createElement('track');
-
-    track.kind = 'captions';
-    track.label = 'English';
-    track.srclang = 'en';
-    track.src = captionsUrl;
-
-    video.append(track);
-  }
 
   const fallback = document.createElement('p');
 

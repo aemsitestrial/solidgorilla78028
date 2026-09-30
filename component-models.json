@@ -338,16 +338,25 @@
         "value": false
       },
       {
-        "component": "text",
+        "component": "select",
         "valueType": "string",
-        "name": "videoTitle",
-        "label": "Video Title"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "captionsUrl",
-        "label": "Captions URL (.vtt)"
+        "name": "preload",
+        "label": "Preload",
+        "value": "metadata",
+        "options": [
+          {
+            "name": "Metadata",
+            "value": "metadata"
+          },
+          {
+            "name": "Auto",
+            "value": "auto"
+          },
+          {
+            "name": "None",
+            "value": "none"
+          }
+        ]
       }
     ]
   },
