@@ -39,22 +39,6 @@ function getAuthoredBoolean(block, propName, positionalRow) {
   return getBooleanFromRow(positionalRow);
 }
 
-function getFieldValue(block, propName, fallback = '') {
-  const row = block.querySelector(`[data-aue-prop="${propName}"]`);
-
-  if (!row) {
-    return fallback;
-  }
-
-  const input = row.querySelector('input');
-
-  if (input) {
-    return input.value;
-  }
-
-  return row.textContent?.trim() || fallback;
-}
-
 function getUrlFromRow(row) {
   if (!row) return '';
 
@@ -185,12 +169,6 @@ export default function decorate(block) {
 
   const muted = getAuthoredBoolean(block, 'muted', rows[5]);
 
-  const preload = ['none', 'metadata', 'auto'].includes(
-    String(getFieldValue(block, 'preload', 'metadata')).trim().toLowerCase(),
-  )
-    ? String(getFieldValue(block, 'preload', 'metadata')).trim().toLowerCase()
-    : 'metadata';
-
   if (!rawVideoUrl) {
     return;
   }
@@ -230,7 +208,7 @@ export default function decorate(block) {
 
   video.className = 'dm-video-player';
   video.controls = controls;
-  video.preload = preload;
+  video.preload = 'metadata';
   video.playsInline = true;
   video.loop = loop;
   video.muted = muted || autoplay;

@@ -62,27 +62,6 @@
           "name": "muted",
           "label": "Muted",
           "value": false
-        },
-        {
-          "component": "select",
-          "valueType": "string",
-          "name": "preload",
-          "label": "Preload",
-          "value": "metadata",
-          "options": [
-            {
-              "name": "Metadata",
-              "value": "metadata"
-            },
-            {
-              "name": "Auto",
-              "value": "auto"
-            },
-            {
-              "name": "None",
-              "value": "none"
-            }
-          ]
         }
       ]
     }
