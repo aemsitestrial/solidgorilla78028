@@ -6084,6 +6084,48 @@
     ]
   },
   {
+    "id": "tcs-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image alt text"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Card content",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "variation",
+        "label": "Card variation",
+        "valueType": "string",
+        "value": "article",
+        "options": [
+          {
+            "name": "Article",
+            "value": "article"
+          },
+          {
+            "name": "Graphic",
+            "value": "graphic"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "tcs-header",
     "fields": [
       {

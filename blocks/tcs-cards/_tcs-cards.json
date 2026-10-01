@@ -1,0 +1,92 @@
+{
+  "definitions": [
+    {
+      "title": "TCS Cards",
+      "id": "tcs-cards",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 2
+        },
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "TCS Cards",
+              "filter": "tcs-cards"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "TCS Card",
+      "id": "tcs-card",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 2,
+          "fields": [
+            { "name": "image", "selector": "div:nth-child(1)>picture>img[src]" },
+            { "name": "imageAlt", "selector": "div:nth-child(1)>picture>img[alt]" },
+            { "name": "text", "selector": "div:nth-child(2)" },
+            { "name": "variation", "selector": "div:nth-child(3)" }
+          ]
+        },
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "TCS Card",
+              "model": "tcs-card"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "tcs-card",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Image alt text"
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Card content",
+          "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "variation",
+          "label": "Card variation",
+          "valueType": "string",
+          "value": "article",
+          "options": [
+            { "name": "Article", "value": "article" },
+            { "name": "Graphic", "value": "graphic" }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "tcs-cards",
+      "components": ["tcs-card"]
+    }
+  ]
+}

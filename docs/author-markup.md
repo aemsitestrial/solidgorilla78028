@@ -77,6 +77,19 @@ Add one or more `card` items.
 | `imageAlt` | Accessible alternative text. |
 | `text`     | Card rich text.              |
 
+### TCS Cards
+
+**Block name:** `tcs-cards`
+
+Add one or more `tcs-card` items. Each card has its own variation selector, so article and graphic cards can be mixed in one block.
+
+| Field       | Purpose                                                     |
+| ----------- | ----------------------------------------------------------- |
+| `image`     | Card image; used as the article image or graphic background. |
+| `imageAlt`  | Accessible alternative text for the image.                 |
+| `text`      | Card rich text, including metadata, heading, summary, and CTA link. |
+| `variation` | Select `Article` for an image-led card or `Graphic` for a blue graphic card. |
+
 ### Carousel
 
 **Block name:** `carousel`

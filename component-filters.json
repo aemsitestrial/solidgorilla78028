@@ -132,6 +132,12 @@
     "components": []
   },
   {
+    "id": "tcs-cards",
+    "components": [
+      "tcs-card"
+    ]
+  },
+  {
     "id": "video",
     "components": []
   }

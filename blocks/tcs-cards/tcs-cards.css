@@ -1,0 +1,157 @@
+.tcs-cards-container {
+  padding: 64px 24px;
+}
+
+.tcs-cards > ul,
+.tcs-cards-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tcs-cards-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  background: #fff;
+}
+
+.tcs-cards-card-image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.tcs-cards-card-image picture,
+.tcs-cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tcs-cards-card-image img {
+  object-fit: cover;
+}
+
+.tcs-cards-card-content {
+  display: flex;
+  min-height: 212px;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.tcs-cards-card-content p {
+  margin: 0;
+}
+
+.tcs-cards-card-content > p:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: #5a5a5a;
+  font-size: 12px;
+}
+
+.tcs-cards-card-content > p:first-child strong {
+  padding: 4px 8px;
+  background: #f3f3f3;
+  color: #0c0c0d;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tcs-cards-card-content h2,
+.tcs-cards-card-content h3,
+.tcs-cards-card-content h4 {
+  margin: 0;
+  color: #303030;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.tcs-cards-card-content a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 8px;
+  color: #0c0c0d;
+  text-decoration: none;
+}
+
+.tcs-cards-card-content a::after {
+  content: '\2192';
+  font-size: 22px;
+  line-height: 1;
+}
+
+.tcs-cards-card-graphic {
+  position: relative;
+  min-height: 350px;
+  overflow: hidden;
+  background-color: #4673db;
+  background-image: linear-gradient(180deg, rgb(12 12 13 / 10%), rgb(12 12 13 / 16%)), var(--tcs-cards-graphic-image);
+  background-position: center;
+  background-size: cover;
+}
+
+.tcs-cards-card-graphic .tcs-cards-card-content {
+  z-index: 1;
+  min-height: 350px;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.tcs-cards-card-graphic .tcs-cards-card-content > p:first-child strong:first-child {
+  background: #011627;
+  color: #f3f3f3;
+}
+
+.tcs-cards-card-graphic .tcs-cards-card-content > p:first-child strong:not(:first-child) {
+  background: #fff;
+  color: #0c0c0d;
+}
+
+.tcs-cards-card-graphic .tcs-cards-card-content h2,
+.tcs-cards-card-graphic .tcs-cards-card-content h3,
+.tcs-cards-card-graphic .tcs-cards-card-content h4 {
+  color: #fff;
+}
+
+.tcs-cards-card-graphic .tcs-cards-card-content a {
+  border: 1px solid #f3f3f3;
+  padding: 10px 14px;
+  color: #fff;
+  background: rgb(12 12 13 / 35%);
+}
+
+@media (width <= 1000px) {
+  .tcs-cards > ul,
+  .tcs-cards-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width <= 600px) {
+  .tcs-cards-container {
+    padding: 40px 20px;
+  }
+
+  .tcs-cards > ul,
+  .tcs-cards-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .tcs-cards-card-graphic,
+  .tcs-cards-card-graphic .tcs-cards-card-content {
+    min-height: 320px;
+  }
+}
