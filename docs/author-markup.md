@@ -27,6 +27,10 @@ Use one block per section. Keep links, images, and rich text in their own cells.
 - For XWalk, change the model field rather than manually editing generated JSON.
 - For DA Live/document authoring, use the field order documented for the block.
 
+### Rich-text formatting in Universal Editor
+
+Rich-text fields across the project share a toolbar with text formatting, headings, alignment, lists, links, images, tables, special characters, and superscript/subscript. The `Typography style` menu offers project presets for font family and size. Font family and size are preset combinations rather than independent arbitrary values; text color and other supported formatting controls are available separately.
+
 ## Block catalog
 
 ### Accordion

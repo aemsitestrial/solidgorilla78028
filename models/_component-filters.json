@@ -9,6 +9,48 @@
     "...": "./_section.json#/filters"
   },
   {
+    "id": "richtext",
+    "components": ["richtext"],
+    "rte": {
+      "toolbar": {
+        "format": ["bold", "italic", "underline", "strike", "code_inline", "text_color"],
+        "alignment": ["left", "center", "right", "justify"],
+        "direction": ["ltr", "rtl"],
+        "indentation": ["indent", "outdent"],
+        "blocks": ["paragraph", "h1", "h2", "h3", "h4", "h5", "h6", "code_block", "blockquote"],
+        "list": ["bullet_list", "ordered_list"],
+        "insert": ["link", "unlink", "image", "table", "special_characters"],
+        "sr_script": ["superscript", "subscript"],
+        "editor": ["removeformat", "clean_unsupported_tags", "paste_text"],
+        "advanced": ["classes"],
+        "sections": ["format", "blocks", "alignment", "list", "indentation", "insert", "sr_script", "editor", "advanced"]
+      },
+      "actions": {
+        "bold": { "tag": "strong" },
+        "italic": { "tag": "em" },
+        "strike": { "tag": "del" },
+        "image": { "wrapInPicture": true },
+        "table": {
+          "showTableProperties": true,
+          "showRowProperties": true,
+          "showCellProperties": true
+        },
+        "classes": {
+          "label": "Typography style",
+          "options": [
+            { "value": "rte-type-body-small", "label": "Body small (14px)" },
+            { "value": "rte-type-body", "label": "Body (16px)" },
+            { "value": "rte-type-body-large", "label": "Body large (20px)" },
+            { "value": "rte-type-heading", "label": "Heading (26px)" },
+            { "value": "rte-type-heading-large", "label": "Heading large (36px)" },
+            { "value": "rte-type-serif", "label": "Serif (18px)" },
+            { "value": "rte-type-monospace", "label": "Monospace (16px)" }
+          ]
+        }
+      }
+    }
+  },
+  {
     "...": "../blocks/*/_*.json#/filters"
   }
 ]

@@ -87,6 +87,50 @@ body.appear {
   display: block;
 }
 
+.rte-type-body-small {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.rte-type-body {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.rte-type-body-large {
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.rte-type-heading {
+  font-family: var(--heading-font-family);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.rte-type-heading-large {
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.rte-type-serif {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.rte-type-monospace {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 header {
   height: var(--header-height);
 }
