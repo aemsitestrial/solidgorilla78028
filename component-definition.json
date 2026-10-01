@@ -1147,20 +1147,56 @@
               "columns": 2,
               "fields": [
                 {
+                  "name": "variation",
+                  "selector": "div:nth-child(1)"
+                },
+                {
                   "name": "image",
-                  "selector": "div:nth-child(1)>picture>img[src]"
+                  "selector": "div:nth-child(2)>picture>img[src]"
                 },
                 {
                   "name": "imageAlt",
-                  "selector": "div:nth-child(1)>picture>img[alt]"
+                  "selector": "div:nth-child(2)>picture>img[alt]"
                 },
                 {
-                  "name": "text",
-                  "selector": "div:nth-child(2)"
+                  "name": "category",
+                  "selector": "div:nth-child(4)"
                 },
                 {
-                  "name": "variation",
-                  "selector": "div:nth-child(3)"
+                  "name": "tag",
+                  "selector": "div:nth-child(5)"
+                },
+                {
+                  "name": "readTime",
+                  "selector": "div:nth-child(6)"
+                },
+                {
+                  "name": "publishedDate",
+                  "selector": "div:nth-child(7)"
+                },
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(8)"
+                },
+                {
+                  "name": "summary",
+                  "selector": "div:nth-child(9)"
+                },
+                {
+                  "name": "ctaLabel",
+                  "selector": "div:nth-child(10)"
+                },
+                {
+                  "name": "ctaLink",
+                  "selector": "div:nth-child(11)"
+                },
+                {
+                  "name": "backgroundColor",
+                  "selector": "div:nth-child(12)"
+                },
+                {
+                  "name": "backgroundImage",
+                  "selector": "div:nth-child(13)>picture>img[src]"
                 }
               ]
             },

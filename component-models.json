@@ -6087,26 +6087,6 @@
     "id": "tcs-card",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Image alt text"
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Card content",
-        "valueType": "string"
-      },
-      {
         "component": "select",
         "name": "variation",
         "label": "Card variation",
@@ -6122,6 +6102,101 @@
             "value": "graphic"
           }
         ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image alt text"
+      },
+      {
+        "component": "text",
+        "name": "category",
+        "label": "Category",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "tag",
+        "label": "Tag",
+        "valueType": "string",
+        "value": "TAG"
+      },
+      {
+        "component": "text",
+        "name": "readTime",
+        "label": "Read time",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "publishedDate",
+        "label": "Published date",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "summary",
+        "value": "",
+        "label": "Summary",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "ctaLabel",
+        "label": "CTA label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "ctaLink",
+        "label": "CTA link",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "backgroundColor",
+        "label": "Graphic background color",
+        "valueType": "string",
+        "value": "#4673DB",
+        "options": [
+          {
+            "name": "TCS Blue",
+            "value": "#4673DB"
+          },
+          {
+            "name": "Navy",
+            "value": "#011627"
+          },
+          {
+            "name": "Black",
+            "value": "#0C0C0D"
+          },
+          {
+            "name": "White",
+            "value": "#FFFFFF"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "name": "backgroundImage",
+        "label": "Graphic background image",
+        "valueType": "string",
+        "multi": false
       }
     ]
   },

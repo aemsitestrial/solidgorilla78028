@@ -81,14 +81,23 @@ Add one or more `card` items.
 
 **Block name:** `tcs-cards`
 
-Add one or more `tcs-card` items. Each card has its own variation selector, so article and graphic cards can be mixed in one block.
+Add one or more `tcs-card` items. Each card has its own variation and graphic background settings, so article and graphic cards can be mixed in one block.
 
-| Field       | Purpose                                                     |
-| ----------- | ----------------------------------------------------------- |
-| `image`     | Card image; used as the article image or graphic background. |
-| `imageAlt`  | Accessible alternative text for the image.                 |
-| `text`      | Card rich text, including metadata, heading, summary, and CTA link. |
-| `variation` | Select `Article` for an image-led card or `Graphic` for a blue graphic card. |
+| Field             | Purpose                                                            |
+| ----------------- | ------------------------------------------------------------------ |
+| `variation`       | Select `Article` or `Graphic`.                                     |
+| `image`           | Article card image.                                                |
+| `imageAlt`        | Accessible alternative text for the article image.                |
+| `category`        | Uppercase content category, such as `blog` or `PERSPECTIVE`.       |
+| `tag`             | Secondary tag, such as `TAG`.                                      |
+| `readTime`        | Reading time, such as `14 min read`.                               |
+| `publishedDate`   | Publication date; displayed with a `Published` prefix on articles. |
+| `title`           | Card heading.                                                      |
+| `summary`         | Article summary; not displayed for graphic cards.                 |
+| `ctaLabel`        | CTA text, such as `Explore` or `Download`.                          |
+| `ctaLink`         | CTA destination URL.                                               |
+| `backgroundColor` | Graphic card color: TCS Blue, Navy, Black, or White.               |
+| `backgroundImage` | Optional graphic card background image.                            |
 
 ### Carousel
 

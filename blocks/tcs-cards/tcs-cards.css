@@ -1,5 +1,5 @@
 .tcs-cards-container {
-  padding: 64px 24px;
+  padding: 120px 80px;
 }
 
 .tcs-cards > ul,
@@ -13,6 +13,7 @@
 }
 
 .tcs-cards-card {
+  position: relative;
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -36,8 +37,10 @@
 }
 
 .tcs-cards-card-content {
+  position: relative;
+  z-index: 1;
   display: flex;
-  min-height: 212px;
+  min-height: 218px;
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
@@ -45,30 +48,38 @@
   padding: 12px 0;
 }
 
-.tcs-cards-card-content p {
-  margin: 0;
-}
-
-.tcs-cards-card-content > p:first-child {
+.tcs-cards-card-metadata {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  color: #5a5a5a;
-  font-size: 12px;
-}
-
-.tcs-cards-card-content > p:first-child strong {
-  padding: 4px 8px;
-  background: #f3f3f3;
   color: #0c0c0d;
   font-size: 12px;
-  font-weight: 500;
+  line-height: 1.4;
 }
 
-.tcs-cards-card-content h2,
-.tcs-cards-card-content h3,
-.tcs-cards-card-content h4 {
+.tcs-cards-card-category,
+.tcs-cards-card-tag {
+  text-transform: uppercase;
+}
+
+.tcs-cards-card-read-time {
+  margin-left: auto;
+  color: #999;
+}
+
+.tcs-cards-card-date,
+.tcs-cards-card-summary {
+  margin: 0;
+}
+
+.tcs-cards-card-date {
+  color: #777;
+  font-size: 14px;
+}
+
+.tcs-cards-card-content h3 {
   margin: 0;
   color: #303030;
   font-size: 24px;
@@ -76,8 +87,19 @@
   line-height: 1.4;
 }
 
-.tcs-cards-card-content a {
+.tcs-cards-card-summary {
+  color: #0c0c0d;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.tcs-cards-card-summary p {
+  margin: 0;
+}
+
+.tcs-cards-card-cta {
   display: inline-flex;
+  min-height: 24px;
   align-items: center;
   gap: 12px;
   margin-top: auto;
@@ -86,53 +108,98 @@
   text-decoration: none;
 }
 
-.tcs-cards-card-content a::after {
+.tcs-cards-card-cta::after {
   content: '\2192';
   font-size: 22px;
   line-height: 1;
 }
 
 .tcs-cards-card-graphic {
-  position: relative;
   min-height: 350px;
   overflow: hidden;
-  background-color: #4673db;
-  background-image: linear-gradient(180deg, rgb(12 12 13 / 10%), rgb(12 12 13 / 16%)), var(--tcs-cards-graphic-image);
-  background-position: center;
-  background-size: cover;
+  background-color: var(--tcs-cards-card-background, #4673db);
+}
+
+.tcs-cards-card-background-image,
+.tcs-cards-card-background-image img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tcs-cards-card-background-image {
+  z-index: 0;
+}
+
+.tcs-cards-card-background-image img {
+  object-fit: cover;
 }
 
 .tcs-cards-card-graphic .tcs-cards-card-content {
-  z-index: 1;
   min-height: 350px;
   justify-content: space-between;
   padding: 24px;
+  color: #fff;
 }
 
-.tcs-cards-card-graphic .tcs-cards-card-content > p:first-child strong:first-child {
+.tcs-cards-card-graphic .tcs-cards-card-metadata {
+  width: auto;
+  gap: 4px;
+  color: #fff;
+}
+
+.tcs-cards-card-graphic .tcs-cards-card-category,
+.tcs-cards-card-graphic .tcs-cards-card-tag {
+  padding: 4px 8px;
+}
+
+.tcs-cards-card-graphic .tcs-cards-card-category {
   background: #011627;
   color: #f3f3f3;
 }
 
-.tcs-cards-card-graphic .tcs-cards-card-content > p:first-child strong:not(:first-child) {
+.tcs-cards-card-graphic .tcs-cards-card-tag {
   background: #fff;
   color: #0c0c0d;
 }
 
-.tcs-cards-card-graphic .tcs-cards-card-content h2,
-.tcs-cards-card-graphic .tcs-cards-card-content h3,
-.tcs-cards-card-graphic .tcs-cards-card-content h4 {
+.tcs-cards-card-graphic .tcs-cards-card-read-time {
+  color: rgb(255 255 255 / 75%);
+}
+
+.tcs-cards-card-graphic .tcs-cards-card-content h3 {
   color: #fff;
 }
 
-.tcs-cards-card-graphic .tcs-cards-card-content a {
+.tcs-cards-card-graphic .tcs-cards-card-cta {
   border: 1px solid #f3f3f3;
   padding: 10px 14px;
   color: #fff;
   background: rgb(12 12 13 / 35%);
 }
 
+.tcs-cards-card-graphic-light .tcs-cards-card-content,
+.tcs-cards-card-graphic-light .tcs-cards-card-content h3,
+.tcs-cards-card-graphic-light .tcs-cards-card-cta {
+  color: #0c0c0d;
+}
+
+.tcs-cards-card-graphic-light .tcs-cards-card-read-time {
+  color: #5a5a5a;
+}
+
+.tcs-cards-card-graphic-light .tcs-cards-card-cta {
+  border-color: #303030;
+  background: rgb(255 255 255 / 70%);
+}
+
 @media (width <= 1000px) {
+  .tcs-cards-container {
+    padding: 80px 40px;
+  }
+
   .tcs-cards > ul,
   .tcs-cards-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));

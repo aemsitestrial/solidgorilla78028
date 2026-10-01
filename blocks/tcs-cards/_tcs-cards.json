@@ -27,10 +27,19 @@
           "rows": 1,
           "columns": 2,
           "fields": [
-            { "name": "image", "selector": "div:nth-child(1)>picture>img[src]" },
-            { "name": "imageAlt", "selector": "div:nth-child(1)>picture>img[alt]" },
-            { "name": "text", "selector": "div:nth-child(2)" },
-            { "name": "variation", "selector": "div:nth-child(3)" }
+            { "name": "variation", "selector": "div:nth-child(1)" },
+            { "name": "image", "selector": "div:nth-child(2)>picture>img[src]" },
+            { "name": "imageAlt", "selector": "div:nth-child(2)>picture>img[alt]" },
+            { "name": "category", "selector": "div:nth-child(4)" },
+            { "name": "tag", "selector": "div:nth-child(5)" },
+            { "name": "readTime", "selector": "div:nth-child(6)" },
+            { "name": "publishedDate", "selector": "div:nth-child(7)" },
+            { "name": "title", "selector": "div:nth-child(8)" },
+            { "name": "summary", "selector": "div:nth-child(9)" },
+            { "name": "ctaLabel", "selector": "div:nth-child(10)" },
+            { "name": "ctaLink", "selector": "div:nth-child(11)" },
+            { "name": "backgroundColor", "selector": "div:nth-child(12)" },
+            { "name": "backgroundImage", "selector": "div:nth-child(13)>picture>img[src]" }
           ]
         },
         "xwalk": {
@@ -50,6 +59,17 @@
       "id": "tcs-card",
       "fields": [
         {
+          "component": "select",
+          "name": "variation",
+          "label": "Card variation",
+          "valueType": "string",
+          "value": "article",
+          "options": [
+            { "name": "Article", "value": "article" },
+            { "name": "Graphic", "value": "graphic" }
+          ]
+        },
+        {
           "component": "reference",
           "valueType": "string",
           "name": "image",
@@ -63,22 +83,74 @@
           "label": "Image alt text"
         },
         {
+          "component": "text",
+          "name": "category",
+          "label": "Category",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "tag",
+          "label": "Tag",
+          "valueType": "string",
+          "value": "TAG"
+        },
+        {
+          "component": "text",
+          "name": "readTime",
+          "label": "Read time",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "publishedDate",
+          "label": "Published date",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title",
+          "valueType": "string"
+        },
+        {
           "component": "richtext",
-          "name": "text",
+          "name": "summary",
           "value": "",
-          "label": "Card content",
+          "label": "Summary",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "ctaLabel",
+          "label": "CTA label",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "ctaLink",
+          "label": "CTA link",
           "valueType": "string"
         },
         {
           "component": "select",
-          "name": "variation",
-          "label": "Card variation",
+          "name": "backgroundColor",
+          "label": "Graphic background color",
           "valueType": "string",
-          "value": "article",
+          "value": "#4673DB",
           "options": [
-            { "name": "Article", "value": "article" },
-            { "name": "Graphic", "value": "graphic" }
+            { "name": "TCS Blue", "value": "#4673DB" },
+            { "name": "Navy", "value": "#011627" },
+            { "name": "Black", "value": "#0C0C0D" },
+            { "name": "White", "value": "#FFFFFF" }
           ]
+        },
+        {
+          "component": "reference",
+          "name": "backgroundImage",
+          "label": "Graphic background image",
+          "valueType": "string",
+          "multi": false
         }
       ]
     }
