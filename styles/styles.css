@@ -87,6 +87,82 @@ body.appear {
   display: block;
 }
 
+.rte-aptos-12,
+.rte-aptos-16,
+.rte-aptos-24,
+.rte-aptos-32 {
+  font-family: Aptos, Arial, sans-serif;
+}
+
+.rte-aptos-12,
+.rte-roboto-12 {
+  font-size: 12px;
+}
+
+.rte-aptos-16,
+.rte-roboto-16 {
+  font-size: 16px;
+}
+
+.rte-aptos-24,
+.rte-roboto-24,
+.rte-serif-24 {
+  font-size: 24px;
+}
+
+.rte-aptos-32,
+.rte-roboto-32,
+.rte-roboto-condensed-32 {
+  font-size: 32px;
+}
+
+.rte-roboto-12,
+.rte-roboto-14,
+.rte-roboto-16,
+.rte-roboto-20,
+.rte-roboto-24,
+.rte-roboto-32 {
+  font-family: var(--body-font-family);
+}
+
+.rte-roboto-14,
+.rte-monospace-14 {
+  font-size: 14px;
+}
+
+.rte-roboto-20 {
+  font-size: 20px;
+}
+
+.rte-roboto-condensed-16,
+.rte-roboto-condensed-24,
+.rte-roboto-condensed-32 {
+  font-family: var(--heading-font-family);
+}
+
+.rte-roboto-condensed-16,
+.rte-monospace-16 {
+  font-size: 16px;
+}
+
+.rte-roboto-condensed-24 {
+  font-size: 24px;
+}
+
+.rte-serif-16,
+.rte-serif-24 {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.rte-serif-16 {
+  font-size: 16px;
+}
+
+.rte-monospace-14,
+.rte-monospace-16 {
+  font-family: Consolas, 'Courier New', monospace;
+}
+
 .rte-type-body-small {
   font-family: var(--body-font-family);
   font-size: 14px;

@@ -29,7 +29,7 @@ Use one block per section. Keep links, images, and rich text in their own cells.
 
 ### Rich-text formatting in Universal Editor
 
-Rich-text fields across the project share a toolbar with text formatting, headings, alignment, lists, links, images, tables, special characters, and superscript/subscript. The `Typography style` menu offers project presets for font family and size. Font family and size are preset combinations rather than independent arbitrary values; text color and other supported formatting controls are available separately.
+Rich-text fields across the project share a toolbar with text formatting, headings, alignment, lists, links, images, tables, special characters, and superscript/subscript. The `Typography style` menu offers font-family and size combinations, including Aptos, Roboto, Roboto Condensed, serif, and monospace styles. The Universal Editor does not provide independent arbitrary font-family and font-size dropdowns; text color and other supported formatting controls are available separately.
 
 ## Block catalog
 
