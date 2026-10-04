@@ -31,7 +31,7 @@ Use one block per section. Keep links, images, and rich text in their own cells.
 
 Rich-text fields use the shared toolbar configured by the `richtext` filter in `models/_component-filters.json`. It includes character formatting, text color, paragraph and heading formats, alignment, text direction, indentation, lists, links, images, tables, special characters, superscript/subscript, and editor cleanup actions.
 
-The `Typography style` menu provides predefined font-family classes only. Available families include Aptos, Arial, Calibri, Cambria, Courier New, Consolas, Georgia, Roboto, Roboto Condensed, Times New Roman, Tahoma, Trebuchet MS, and Verdana. These options apply CSS classes; they do not load arbitrary fonts or add independent Word-style family and size controls.
+The `Typography style` menu provides predefined font-family classes, including local system fonts and a snapshot of the Google Fonts catalog. This is not a verified mirror of the fonts available in Google Docs. The menu contains nearly 2,000 choices; Google Fonts are loaded on demand from Google Fonts when authored content uses them, so those families require network access and permission to reach `fonts.googleapis.com`. Font choices are applied as CSS classes.
 
 This is not a complete Microsoft Word editor. Universal Editor exposes its own supported rich-text plugins, and this project configures those plugins rather than embedding Word. Features such as track changes, comments, page layout, and arbitrary font installation are outside this block's current authoring contract. The enabled toolbar actions are controlled in `models/_component-filters.json`; font and size presentation classes are defined in `styles/styles.css`.
 

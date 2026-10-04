@@ -9,6 +9,7 @@ import {
   loadCSS,
 } from './aem.js';
 import decorateMain from './decorate-main.js';
+import loadGoogleFonts from './google-fonts.js';
 
 export { default as decorateMain } from './decorate-main.js';
 
@@ -144,6 +145,7 @@ async function loadUniversalEditorSupport() {
 }
 
 async function loadPage() {
+  loadGoogleFonts();
   await loadEager(document);
   await loadUniversalEditorSupport();
   await loadLazy(document);
