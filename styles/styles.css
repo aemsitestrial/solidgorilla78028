@@ -87,6 +87,75 @@ body.appear {
   display: block;
 }
 
+.rte-font-aptos {
+  font-family: Aptos, Calibri, Arial, sans-serif;
+}
+
+.rte-font-arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.rte-font-calibri {
+  font-family: Calibri, Carlito, Arial, sans-serif;
+}
+
+.rte-font-cambria {
+  font-family: Cambria, Georgia, serif;
+}
+
+.rte-font-courier-new {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.rte-font-consolas {
+  font-family: Consolas, 'Courier New', monospace;
+}
+
+.rte-font-georgia {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.rte-font-roboto {
+  font-family: var(--body-font-family);
+}
+
+.rte-font-roboto-condensed {
+  font-family: var(--heading-font-family);
+}
+
+.rte-font-times-new-roman {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.rte-font-tahoma {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+.rte-font-trebuchet-ms {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.rte-font-verdana {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.rte-size-8pt { font-size: 8pt; }
+.rte-size-9pt { font-size: 9pt; }
+.rte-size-10pt { font-size: 10pt; }
+.rte-size-11pt { font-size: 11pt; }
+.rte-size-12pt { font-size: 12pt; }
+.rte-size-14pt { font-size: 14pt; }
+.rte-size-16pt { font-size: 16pt; }
+.rte-size-18pt { font-size: 18pt; }
+.rte-size-20pt { font-size: 20pt; }
+.rte-size-22pt { font-size: 22pt; }
+.rte-size-24pt { font-size: 24pt; }
+.rte-size-26pt { font-size: 26pt; }
+.rte-size-28pt { font-size: 28pt; }
+.rte-size-36pt { font-size: 36pt; }
+.rte-size-48pt { font-size: 48pt; }
+.rte-size-72pt { font-size: 72pt; }
+
 .rte-aptos-12,
 .rte-aptos-16,
 .rte-aptos-24,

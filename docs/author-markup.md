@@ -29,7 +29,11 @@ Use one block per section. Keep links, images, and rich text in their own cells.
 
 ### Rich-text formatting in Universal Editor
 
-Rich-text fields across the project share a toolbar with text formatting, headings, alignment, lists, links, images, tables, special characters, and superscript/subscript. The `Typography style` menu offers font-family and size combinations, including Aptos, Roboto, Roboto Condensed, serif, and monospace styles. The Universal Editor does not provide independent arbitrary font-family and font-size dropdowns; text color and other supported formatting controls are available separately.
+Rich-text fields use the shared toolbar configured by the `richtext` filter in `models/_component-filters.json`. It includes character formatting, text color, paragraph and heading formats, alignment, text direction, indentation, lists, links, images, tables, special characters, superscript/subscript, and editor cleanup actions.
+
+The `Typography style` menu provides predefined font-family and size classes. Available families include Aptos, Arial, Calibri, Cambria, Courier New, Consolas, Georgia, Roboto, Roboto Condensed, Times New Roman, Tahoma, Trebuchet MS, and Verdana. Available sizes are 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, and 72 points, alongside named typography presets. These options apply CSS classes; they do not load arbitrary fonts or add independent Word-style family and size controls.
+
+This is not a complete Microsoft Word editor. Universal Editor exposes its own supported rich-text plugins, and this project configures those plugins rather than embedding Word. Features such as track changes, comments, page layout, and arbitrary font installation are outside this block's current authoring contract. The enabled toolbar actions are controlled in `models/_component-filters.json`; font and size presentation classes are defined in `styles/styles.css`.
 
 ## Block catalog
 

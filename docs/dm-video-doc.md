@@ -1,156 +1,44 @@
-# DM Video Block
+# DM Video
 
-## Overview
+Enter a supported video URL, then set the optional fields in Universal Editor.
 
-The DM Video block is used to render Dynamic Media video content in the Franklin site. It accepts a video URL and an optional thumbnail image, then automatically decides the best rendering method based on the URL type.
+## Fields
 
-The rendering logic is implemented in `blocks/dm-video/dm-video.js` and is designed to support two main source types:
+| Field | Authored value | Default |
+| --- | --- | --- |
+| `thumbnail` | Poster image URL, or leave empty | Empty |
+| `videoUrl` | Required URL ending in `/play`, `.mp4`, `.webm`, `.ogg`, or `.ogv` | None |
+| `autoplay` | `true` or `false` | `false` |
+| `loop` | `true` or `false` | `false` |
+| `controls` | `true` or `false` | `true` |
+| `muted` | `true` or `false` | `false` |
 
-1. Dynamic Media `/play` URLs
-2. Direct video file URLs such as `.mp4`, `.webm`, `.ogg`, and `.ogv`
+## Source Variations
 
----
+Use these values for the `videoUrl` field. The other fields can be set independently as shown below.
 
-## Supported URL Types
+| Type | Authored `videoUrl` | Result |
+| --- | --- | --- |
+| Dynamic Media player | `https://media.example.com/content/dam/intro/play` | Responsive iframe player |
+| MP4 | `https://media.example.com/videos/intro.mp4` | Native video player |
+| WebM | `https://media.example.com/videos/intro.webm` | Native video player |
+| OGG | `https://media.example.com/videos/intro.ogg` | Native video player |
+| OGV | `https://media.example.com/videos/intro.ogv` | Native video player |
 
-### 1) Dynamic Media /play URL
+## Playback Variations
 
-This format is used for Dynamic Media-managed video players.
+Example values for a native video (`videoUrl: https://media.example.com/videos/intro.mp4`):
 
-Example:
+| Variation | `thumbnail` | `autoplay` | `loop` | `controls` | `muted` |
+| --- | --- | --- | --- | --- | --- |
+| Standard player | `https://media.example.com/images/intro.jpg` | `false` | `false` | `true` | `false` |
+| Autoplay | `https://media.example.com/images/intro.jpg` | `true` | `false` | `true` | `false` |
+| Autoplay and loop | `https://media.example.com/images/intro.jpg` | `true` | `true` | `true` | `false` |
+| Loop only | `https://media.example.com/images/intro.jpg` | `false` | `true` | `true` | `false` |
+| Muted player | `https://media.example.com/images/intro.jpg` | `false` | `false` | `true` | `true` |
+| No controls | Leave empty | `false` | `false` | `false` | `false` |
+| Muted, no controls | Leave empty | `false` | `false` | `false` | `true` |
 
-```text
-https://example.com/content/dam/brand/intro-video/play
-```
+The four toggles are independent and can be combined. For `/play` URLs, `autoplay` and `loop` are passed to the embedded player. `thumbnail`, `muted`, and `controls` configure native video only. Autoplay is suppressed when the visitor has enabled reduced motion. Autoplayed native video is muted automatically.
 
-Behavior:
-- The block detects that the URL path ends with `/play`
-- It renders the video using an iframe
-- The full player URL is preserved, including query parameters
-- The iframe wrapper is set to a responsive 16:9 layout
-
-### 2) Direct video file URL
-
-This format is used when the source is a direct video file.
-
-Examples:
-
-```text
-https://www.w3schools.com/html/mov_bbb.mp4
-https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm
-https://cdn.example.com/videos/product-tour.ogg
-https://cdn.example.com/videos/product-tour.ogv
-```
-
-Behavior:
-- The block detects the media file extension
-- It renders the content using a native HTML5 `<video>` element
-- It adds built-in controls
-- It sets the optional poster image if provided
-- It inserts a fallback link for browsers that cannot play the media inline
-
----
-
-## Block Fields
-
-The block uses the following fields:
-
-- `thumbnail`: optional poster image
-- `videoUrl`: required video URL
-- `autoplay`: optional toggle to start playback automatically
-- `loop`: optional toggle to replay the video continuously after it ends
-
-This is defined in the component model and the block metadata.
-
----
-
-## Runtime Decision Logic
-
-The block decides how to render the video using the URL path:
-
-- If the URL ends with `/play`, it uses iframe mode
-- If the URL ends with a supported video extension, it uses native video mode
-- For Dynamic Media asset URLs using `/as/...mp4`, it removes some non-essential query parameters before rendering
-- If `autoplay` is enabled, native videos are muted and set to autoplay; `/play` iframe URLs receive autoplay-related query parameters
-- If `loop` is enabled, native videos receive the `loop` attribute; `/play` iframe URLs receive `loop=1`
-
-This behavior is implemented in `resolveDmVideoDelivery()` inside `blocks/dm-video/dm-video.js`.
-
----
-
-## Examples for Authors
-
-### Example A: Dynamic Media video
-
-```text
-Thumbnail: https://images.example.com/thumbs/intro.jpg
-Video URL: https://example.com/content/dam/brand/intro-video/play
-```
-
-Result:
-- Iframe-based Dynamic Media player
-- Responsive layout
-- Full DM experience
-
-### Example B: MP4 video
-
-```text
-Thumbnail: https://images.example.com/thumbs/product-tour.jpg
-Video URL: https://cdn.example.com/videos/product-tour.mp4
-```
-
-Result:
-- Native browser video player
-- Video controls visible
-- Poster image displayed before playback
-
-### Example C: WebM video
-
-```text
-Thumbnail: https://images.example.com/thumbs/demo.jpg
-Video URL: https://cdn.example.com/videos/demo.webm
-```
-
-Result:
-- Native browser video player
-- Supported in browsers that accept WebM
-
-### Example D: OGG video
-
-```text
-Thumbnail: https://images.example.com/thumbs/summary.jpg
-Video URL: https://cdn.example.com/videos/summary.ogg
-```
-
-Result:
-- Native browser video player
-- Playback depends on browser compatibility
-
----
-
-## Unsupported URL Types
-
-This block does not support typical third-party embedding URLs such as YouTube links.
-
-Example of unsupported URL:
-
-```text
-https://youtu.be/FB83Lk5KDxo?si=JGZUY_ipfZvxW1Nm
-```
-
-This does not match the accepted patterns for either:
-- Dynamic Media `/play` URLs
-- Direct video file URLs
-
-Therefore, it is not valid for this block without a separate embed implementation.
-
----
-
-## Summary
-
-The DM Video block supports multiple media sources, but only those that fit one of the expected patterns:
-
-- a Dynamic Media URL ending in `/play`
-- a direct file URL ending in `.mp4`, `.webm`, `.ogg`, or `.ogv`
-
-The component automatically chooses the correct renderer so authors can reuse one block for multiple video delivery approaches.
+YouTube and other third-party embed links are not supported by this block.
