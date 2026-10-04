@@ -133,215 +133,55 @@
           "options": [
             {
               "value": "rte-font-aptos",
-              "label": "Font: Aptos"
+              "label": "Aptos"
             },
             {
               "value": "rte-font-arial",
-              "label": "Font: Arial"
+              "label": "Arial"
             },
             {
               "value": "rte-font-calibri",
-              "label": "Font: Calibri"
+              "label": "Calibri"
             },
             {
               "value": "rte-font-cambria",
-              "label": "Font: Cambria"
+              "label": "Cambria"
             },
             {
               "value": "rte-font-courier-new",
-              "label": "Font: Courier New"
+              "label": "Courier New"
             },
             {
               "value": "rte-font-consolas",
-              "label": "Font: Consolas"
+              "label": "Consolas"
             },
             {
               "value": "rte-font-georgia",
-              "label": "Font: Georgia"
+              "label": "Georgia"
             },
             {
               "value": "rte-font-roboto",
-              "label": "Font: Roboto"
+              "label": "Roboto"
             },
             {
               "value": "rte-font-roboto-condensed",
-              "label": "Font: Roboto Condensed"
+              "label": "Roboto Condensed"
             },
             {
               "value": "rte-font-times-new-roman",
-              "label": "Font: Times New Roman"
+              "label": "Times New Roman"
             },
             {
               "value": "rte-font-tahoma",
-              "label": "Font: Tahoma"
+              "label": "Tahoma"
             },
             {
               "value": "rte-font-trebuchet-ms",
-              "label": "Font: Trebuchet MS"
+              "label": "Trebuchet MS"
             },
             {
               "value": "rte-font-verdana",
-              "label": "Font: Verdana"
-            },
-            {
-              "value": "rte-size-8pt",
-              "label": "Size: 8 pt"
-            },
-            {
-              "value": "rte-size-9pt",
-              "label": "Size: 9 pt"
-            },
-            {
-              "value": "rte-size-10pt",
-              "label": "Size: 10 pt"
-            },
-            {
-              "value": "rte-size-11pt",
-              "label": "Size: 11 pt"
-            },
-            {
-              "value": "rte-size-12pt",
-              "label": "Size: 12 pt"
-            },
-            {
-              "value": "rte-size-14pt",
-              "label": "Size: 14 pt"
-            },
-            {
-              "value": "rte-size-16pt",
-              "label": "Size: 16 pt"
-            },
-            {
-              "value": "rte-size-18pt",
-              "label": "Size: 18 pt"
-            },
-            {
-              "value": "rte-size-20pt",
-              "label": "Size: 20 pt"
-            },
-            {
-              "value": "rte-size-22pt",
-              "label": "Size: 22 pt"
-            },
-            {
-              "value": "rte-size-24pt",
-              "label": "Size: 24 pt"
-            },
-            {
-              "value": "rte-size-26pt",
-              "label": "Size: 26 pt"
-            },
-            {
-              "value": "rte-size-28pt",
-              "label": "Size: 28 pt"
-            },
-            {
-              "value": "rte-size-36pt",
-              "label": "Size: 36 pt"
-            },
-            {
-              "value": "rte-size-48pt",
-              "label": "Size: 48 pt"
-            },
-            {
-              "value": "rte-size-72pt",
-              "label": "Size: 72 pt"
-            },
-            {
-              "value": "rte-aptos-12",
-              "label": "Aptos · 12px"
-            },
-            {
-              "value": "rte-aptos-16",
-              "label": "Aptos · 16px"
-            },
-            {
-              "value": "rte-aptos-24",
-              "label": "Aptos · 24px"
-            },
-            {
-              "value": "rte-aptos-32",
-              "label": "Aptos · 32px"
-            },
-            {
-              "value": "rte-roboto-12",
-              "label": "Roboto · 12px"
-            },
-            {
-              "value": "rte-roboto-14",
-              "label": "Roboto · 14px"
-            },
-            {
-              "value": "rte-roboto-16",
-              "label": "Roboto · 16px"
-            },
-            {
-              "value": "rte-roboto-20",
-              "label": "Roboto · 20px"
-            },
-            {
-              "value": "rte-roboto-24",
-              "label": "Roboto · 24px"
-            },
-            {
-              "value": "rte-roboto-32",
-              "label": "Roboto · 32px"
-            },
-            {
-              "value": "rte-roboto-condensed-16",
-              "label": "Roboto Condensed · 16px"
-            },
-            {
-              "value": "rte-roboto-condensed-24",
-              "label": "Roboto Condensed · 24px"
-            },
-            {
-              "value": "rte-roboto-condensed-32",
-              "label": "Roboto Condensed · 32px"
-            },
-            {
-              "value": "rte-serif-16",
-              "label": "Serif · 16px"
-            },
-            {
-              "value": "rte-serif-24",
-              "label": "Serif · 24px"
-            },
-            {
-              "value": "rte-monospace-14",
-              "label": "Monospace · 14px"
-            },
-            {
-              "value": "rte-monospace-16",
-              "label": "Monospace · 16px"
-            },
-            {
-              "value": "rte-type-body-small",
-              "label": "Body small (14px)"
-            },
-            {
-              "value": "rte-type-body",
-              "label": "Body (16px)"
-            },
-            {
-              "value": "rte-type-body-large",
-              "label": "Body large (20px)"
-            },
-            {
-              "value": "rte-type-heading",
-              "label": "Heading (26px)"
-            },
-            {
-              "value": "rte-type-heading-large",
-              "label": "Heading large (36px)"
-            },
-            {
-              "value": "rte-type-serif",
-              "label": "Serif (18px)"
-            },
-            {
-              "value": "rte-type-monospace",
-              "label": "Monospace (16px)"
+              "label": "Verdana"
             }
           ]
         }
