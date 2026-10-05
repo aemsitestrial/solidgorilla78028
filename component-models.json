@@ -5808,6 +5808,37 @@
     ]
   },
   {
+    "id": "statistics-list",
+    "fields": [
+      {
+        "component": "text",
+        "name": "text",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "multifield",
+        "name": "statsList",
+        "label": "Stats List",
+        "composite": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "statsTitle",
+            "label": "Stats Title",
+            "valueType": "string"
+          },
+          {
+            "component": "text",
+            "name": "statsValue",
+            "label": "Stats Value",
+            "valueType": "string"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "table",
     "fields": [
       {
