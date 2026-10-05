@@ -3,38 +3,30 @@ const getText = (node) => {
   return (node.textContent || '').replace(/\s+/g, ' ').trim();
 };
 
-export default function decorate(block) {
-  const rows = Array.from(block.children || []);
+const readStats = (block) => {
+  const children = Array.from(block.children || []);
+  const heading = getText(children[0]) || '';
+  const rawStats = [];
 
-  if (!rows.length) return;
+  const rows = children.slice(1).flatMap((row) => Array.from(row.children || []));
 
-  const heading = getText(rows[0]) || '';
-  const stats = [];
+  rows.forEach((entry) => {
+    const itemChildren = Array.from(entry.children || []);
+    const title = itemChildren.length ? getText(itemChildren[0]) : getText(entry);
+    const value = itemChildren.length > 1 ? getText(itemChildren[1]) : '';
 
-  rows.slice(1).forEach((row) => {
-    const directItems = Array.from(row.children || []);
-
-    if (directItems.length) {
-      directItems.forEach((item) => {
-        const title = getText(item.children[0]) || getText(item);
-        const value = getText(item.children[1]) || '';
-
-        if (title || value) {
-          stats.push({ title, value });
-        }
-      });
-      return;
-    }
-
-    const text = getText(row);
-    if (text) {
-      stats.push({ title: text, value: '' });
+    if (title || value) {
+      rawStats.push({ title, value });
     }
   });
 
-  if (!stats.length && heading) {
-    stats.push({ title: '', value: heading });
-  }
+  return { heading, stats: rawStats };
+};
+
+export default function decorate(block) {
+  const { heading, stats } = readStats(block);
+
+  if (!heading && !stats.length) return;
 
   block.innerHTML = `
     <div class="statistics-list-wrapper">
@@ -43,8 +35,8 @@ export default function decorate(block) {
         <div class="statistics-grid">
           ${stats.map(({ title, value }) => `
             <div class="statistics-item">
-              ${title ? `<div class="stat-title">${title}</div>` : ''}
-              ${value ? `<div class="stat-value">${value}</div>` : ''}
+              <div class="stat-title">${title}</div>
+              <div class="stat-value">${value}</div>
             </div>
           `).join('')}
         </div>
