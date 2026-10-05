@@ -24,24 +24,27 @@
           "component": "text",
           "name": "text",
           "label": "Text",
+          "value": "",
           "valueType": "string"
         },
         {
-          "component": "multifield",
+          "component": "container",
           "name": "statsList",
-          "label": "Stats List",
-          "composite": true,
+          "label": "Stats",
+          "multi": true,
           "fields": [
             {
               "component": "text",
-              "name": "statsTitle",
-              "label": "Stats Title",
+              "name": "title",
+              "label": "Title",
+              "value": "",
               "valueType": "string"
             },
             {
               "component": "text",
-              "name": "statsValue",
-              "label": "Stats Value",
+              "name": "value",
+              "label": "Statistic",
+              "value": "",
               "valueType": "string"
             }
           ]
