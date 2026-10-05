@@ -1,0 +1,44 @@
+.intro-statement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 160px 80px;
+  gap: 10px;
+  width: 1440px;
+  height: 494px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  z-index: 1;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.intro-statement > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.intro-statement p {
+  width: 1090px;
+  height: 116px;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 120%;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #000;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.intro-statement a {
+  color: #4D7CFE;
+  text-decoration: none;
+}

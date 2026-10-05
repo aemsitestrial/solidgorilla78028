@@ -5395,6 +5395,16 @@
     ]
   },
   {
+    "id": "intro-statement",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Statement Text"
+      }
+    ]
+  },
+  {
     "id": "list",
     "fields": [
       {

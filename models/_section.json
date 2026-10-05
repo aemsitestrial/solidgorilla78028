@@ -44,14 +44,14 @@
       "id": "section",
       "components": [
         "accordion",
-	"article",
-	"blog-list",
+        "article",
+        "blog-list",
         "button",
         "cards",
         "carousel",
         "columns",
-	"dm-video",
-	"dm-scene7-template",
+        "dm-video",
+        "dm-scene7-template",
         "embed",
         "fragment",
         "form",
@@ -65,8 +65,9 @@
         "tcs-cards",
         "text",
         "title",
-	"teaser",
+        "teaser",
         "video",
+        "intro-statement",
         "tcs-header"
       ]
     }
