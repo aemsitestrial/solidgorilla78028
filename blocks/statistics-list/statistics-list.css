@@ -27,7 +27,7 @@
   font-size: 40px;
   line-height: 140%;
   letter-spacing: -0.03em;
-  color: #4673db;
+  color: #4e84ff;
 }
 
 .statistics-grid {
@@ -73,11 +73,6 @@
 .statistics-item:nth-child(3) .stat-value {
   font-size: 80px;
   line-height: 96px;
-}
-
-.statistics-item:nth-child(4) .stat-value {
-  font-size: 96px;
-  line-height: 116px;
 }
 
 @media (width <= 991px) {

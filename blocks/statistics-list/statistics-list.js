@@ -1,48 +1,43 @@
 export default function decorate(block) {
-  const rows = [...block.children];
+  const rows = Array.from(block.children);
 
   if (!rows.length) return;
 
-  const heading = rows[0]?.textContent?.trim();
-
-  block.innerHTML = '';
-
-  const wrapper = document.createElement('div');
-  wrapper.className = 'statistics-list-wrapper';
-
-  const content = document.createElement('div');
-  content.className = 'statistics-content';
-
-  const title = document.createElement('h2');
-  title.className = 'statistics-heading';
-  title.textContent = heading;
-
-  content.append(title);
-
-  const statsGrid = document.createElement('div');
-  statsGrid.className = 'statistics-grid';
+  const heading = rows[0]?.textContent?.trim() || '';
+  const stats = [];
 
   rows.slice(1).forEach((row) => {
-    const cols = row.querySelectorAll('div');
+    const children = Array.from(row.children);
 
-    if (cols.length >= 2) {
-      const item = document.createElement('div');
-      item.className = 'statistics-item';
+    if (children.length >= 2) {
+      const title = children[0]?.textContent?.trim() || '';
+      const value = children[1]?.textContent?.trim() || '';
 
-      const statTitle = document.createElement('div');
-      statTitle.className = 'stat-title';
-      statTitle.textContent = cols[0].textContent.trim();
+      if (title || value) {
+        stats.push({ title, value });
+      }
+      return;
+    }
 
-      const statValue = document.createElement('div');
-      statValue.className = 'stat-value';
-      statValue.textContent = cols[1].textContent.trim();
-
-      item.append(statTitle, statValue);
-      statsGrid.append(item);
+    const text = row.textContent?.trim() || '';
+    if (text) {
+      stats.push({ title: text, value: '' });
     }
   });
 
-  content.append(statsGrid);
-  wrapper.append(content);
-  block.append(wrapper);
+  block.innerHTML = `
+    <div class="statistics-list-wrapper">
+      <div class="statistics-content">
+        <h2 class="statistics-heading">${heading}</h2>
+        <div class="statistics-grid">
+          ${stats.map(({ title, value }) => `
+            <div class="statistics-item">
+              <div class="stat-title">${title}</div>
+              <div class="stat-value">${value}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
 }
