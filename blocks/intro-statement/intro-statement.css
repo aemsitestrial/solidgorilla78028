@@ -15,13 +15,14 @@
   box-sizing: border-box;
 }
 
-.intro-statement > div {
+/* Actual authored content only */
+.intro-statement > div:not(.intro-statement-placeholder) {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.intro-statement p {
+.intro-statement > div:not(.intro-statement-placeholder) p {
   width: 1090px;
   height: 116px;
   margin: 0;
@@ -41,4 +42,12 @@
 .intro-statement a {
   color: #4D7CFE;
   text-decoration: none;
+}
+
+/* Placeholder styling */
+.intro-statement-placeholder {
+  padding: 16px;
+  border: 1px dashed #999;
+  color: #666;
+  font-size: 14px;
 }
