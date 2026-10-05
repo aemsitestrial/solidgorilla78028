@@ -1,29 +1,40 @@
+const getText = (node) => {
+  if (!node) return '';
+  return (node.textContent || '').replace(/\s+/g, ' ').trim();
+};
+
 export default function decorate(block) {
-  const rows = Array.from(block.children);
+  const rows = Array.from(block.children || []);
 
   if (!rows.length) return;
 
-  const heading = rows[0]?.textContent?.trim() || '';
+  const heading = getText(rows[0]) || '';
   const stats = [];
 
   rows.slice(1).forEach((row) => {
-    const children = Array.from(row.children);
+    const directItems = Array.from(row.children || []);
 
-    if (children.length >= 2) {
-      const title = children[0]?.textContent?.trim() || '';
-      const value = children[1]?.textContent?.trim() || '';
+    if (directItems.length) {
+      directItems.forEach((item) => {
+        const title = getText(item.children[0]) || getText(item);
+        const value = getText(item.children[1]) || '';
 
-      if (title || value) {
-        stats.push({ title, value });
-      }
+        if (title || value) {
+          stats.push({ title, value });
+        }
+      });
       return;
     }
 
-    const text = row.textContent?.trim() || '';
+    const text = getText(row);
     if (text) {
       stats.push({ title: text, value: '' });
     }
   });
+
+  if (!stats.length && heading) {
+    stats.push({ title: '', value: heading });
+  }
 
   block.innerHTML = `
     <div class="statistics-list-wrapper">
@@ -32,8 +43,8 @@ export default function decorate(block) {
         <div class="statistics-grid">
           ${stats.map(({ title, value }) => `
             <div class="statistics-item">
-              <div class="stat-title">${title}</div>
-              <div class="stat-value">${value}</div>
+              ${title ? `<div class="stat-title">${title}</div>` : ''}
+              ${value ? `<div class="stat-value">${value}</div>` : ''}
             </div>
           `).join('')}
         </div>
