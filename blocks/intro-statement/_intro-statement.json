@@ -23,7 +23,8 @@
         {
           "component": "richtext",
           "name": "text",
-          "label": "Statement Text"
+          "label": "Statement Text",
+          "filter": "richtext"
         }
       ]
     }
