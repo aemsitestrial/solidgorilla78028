@@ -5,22 +5,40 @@ const getText = (node) => {
   return (node.textContent || '').replace(/\s+/g, ' ').trim();
 };
 
+const getField = (row, name, index) => {
+  const selector = `[data-aue-prop="${name}"]`;
+  return (row.matches(selector) ? row : row.querySelector(selector))
+    || row.children[index]
+    || null;
+};
+
+const getStatisticRows = (row) => {
+  const childRows = Array.from(row.children || []);
+  const hasFieldMarkers = row.matches('[data-aue-prop="title"], [data-aue-prop="value"]')
+    || row.querySelector('[data-aue-prop="title"], [data-aue-prop="value"]');
+
+  if (hasFieldMarkers || row.children.length >= 2) return [row];
+  if (childRows.length === 1 && childRows[0].children.length >= 2) return childRows;
+  if (childRows.length > 1 && childRows.every((child) => child.children.length >= 2)) {
+    return childRows;
+  }
+  return [];
+};
+
 const readStats = (block) => {
   const children = Array.from(block.children || []);
-  const headingRow = children[0];
+  const statistics = children.flatMap(getStatisticRows);
+  const headingRow = children.find((row) => row.matches('[data-aue-prop="text"]')
+    || row.querySelector('[data-aue-prop="text"]'))
+    || children.find((row) => !getStatisticRows(row).length);
   const heading = headingRow?.firstElementChild || headingRow;
   const rawStats = [];
 
-  const rows = children.slice(1);
-
-  rows.forEach((row) => {
-    const nestedRow = row.children.length === 1
-      && row.firstElementChild.children.length >= 2
-      ? row.firstElementChild
-      : row;
-    const itemChildren = Array.from(nestedRow.children || []);
-    const title = itemChildren.length ? getText(itemChildren[0]) : getText(nestedRow);
-    const value = itemChildren.length > 1 ? getText(itemChildren[1]) : '';
+  statistics.forEach((row) => {
+    const titleField = getField(row, 'title', 0);
+    const valueField = getField(row, 'value', 1);
+    const title = getText(titleField) || (!valueField ? getText(row) : '');
+    const value = getText(valueField);
 
     if (title || value) {
       rawStats.push({ source: row, title, value });
