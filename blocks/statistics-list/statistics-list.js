@@ -37,10 +37,15 @@ const readStats = (block) => {
   statistics.forEach((row) => {
     const titleField = getField(row, 'title', 0);
     const valueField = getField(row, 'value', 1);
-    const title = getText(titleField) || (!valueField ? getText(row) : '');
-    const value = getText(valueField);
+    let title = getText(titleField) || (!valueField ? getText(row) : '');
+    let value = getText(valueField);
 
-    if (title || value) {
+    if (title === 'Title' && value === 'Value') {
+      title = '';
+      value = '';
+    }
+
+    if (title || value || (titleField && valueField)) {
       rawStats.push({ source: row, title, value });
     }
   });

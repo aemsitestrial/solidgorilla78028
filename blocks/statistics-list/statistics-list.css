@@ -25,9 +25,9 @@
 .statistics-heading {
   max-width: 736px;
   margin: 0;
-  color: #4e84ff;
+  color: #1f1f1f;
   font-family: Inter, sans-serif;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.03em;
@@ -38,43 +38,35 @@
 }
 
 .statistics-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 24px;
   width: 100%;
 }
 
 .statistics-item {
   display: flex;
-  flex: 0 1 auto;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   min-width: 0;
-  min-height: 134px;
 }
 
 .stat-title {
   color: #1f1f1f;
   font-family: Inter, sans-serif;
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .stat-value {
   color: #4673db;
   font-family: Inter, sans-serif;
-  font-size: 96px;
+  font-size: 56px;
   font-weight: 400;
-  line-height: 116px;
-  overflow-wrap: anywhere;
-}
-
-.statistics-item:nth-child(3) .stat-value {
-  font-size: 80px;
-  line-height: 96px;
+  line-height: 1.1;
+  overflow-wrap: break-word;
 }
 
 @media (width <= 1100px) {
@@ -83,18 +75,13 @@
     padding: 120px 40px;
   }
 
-  .statistics-item {
-    flex-basis: calc(50% - 4px);
+  .statistics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
   }
 
   .stat-value {
-    font-size: 72px;
-    line-height: 1.2;
-  }
-
-  .statistics-item:nth-child(3) .stat-value {
-    font-size: 64px;
-    line-height: 1.2;
+    font-size: 48px;
   }
 }
 
@@ -108,26 +95,18 @@
   }
 
   .statistics-heading {
-    font-size: 30px;
+    font-size: 22px;
   }
 
   .statistics-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 16px;
-  }
-
-  .statistics-item {
-    gap: 4px;
-    min-height: 0;
+    gap: 20px 16px;
   }
 
   .stat-title {
-    font-size: 16px;
+    font-size: 13px;
   }
 
-  .stat-value,
-  .statistics-item:nth-child(3) .stat-value {
-    font-size: 40px;
+  .stat-value {
+    font-size: 36px;
   }
 }
