@@ -5818,33 +5818,31 @@
     "id": "statistics-list",
     "fields": [
       {
-        "component": "text",
+        "component": "richtext",
         "name": "text",
         "label": "Text",
+        "value": "",
+        "valueType": "string",
+        "filter": "richtext"
+      }
+    ]
+  },
+  {
+    "id": "statistics-list-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
         "value": "",
         "valueType": "string"
       },
       {
-        "component": "container",
-        "name": "statsList",
-        "label": "Stats",
-        "multi": true,
-        "fields": [
-          {
-            "component": "text",
-            "name": "title",
-            "label": "Title",
-            "value": "",
-            "valueType": "string"
-          },
-          {
-            "component": "text",
-            "name": "value",
-            "label": "Statistic",
-            "value": "",
-            "valueType": "string"
-          }
-        ]
+        "component": "text",
+        "name": "value",
+        "label": "Statistic",
+        "value": "",
+        "valueType": "string"
       }
     ]
   },

@@ -8046,6 +8046,12 @@
     ]
   },
   {
+    "id": "statistics-list",
+    "components": [
+      "statistics-list-item"
+    ]
+  },
+  {
     "id": "table",
     "components": [
       "table-row"
