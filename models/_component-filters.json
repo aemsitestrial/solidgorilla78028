@@ -75,6 +75,7 @@
           "format",
           "blocks",
           "alignment",
+          "direction",
           "list",
           "indentation",
           "insert",
