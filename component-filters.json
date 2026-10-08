@@ -8047,8 +8047,15 @@
     ]
   },
   {
+    "id": "intro-statement",
+    "components": [
+      "text"
+    ]
+  },
+  {
     "id": "statistics-list",
     "components": [
+      "text",
       "statistics-list-item"
     ]
   },

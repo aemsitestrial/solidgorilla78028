@@ -5401,18 +5401,6 @@
     ]
   },
   {
-    "id": "intro-statement",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text",
-        "label": "Statement Text",
-        "valueType": "string",
-        "filter": "richtext"
-      }
-    ]
-  },
-  {
     "id": "list",
     "fields": [
       {
@@ -5812,19 +5800,6 @@
             ]
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": "statistics-list",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "text",
-        "label": "Text",
-        "value": "",
-        "valueType": "string",
-        "filter": "richtext"
       }
     ]
   },
