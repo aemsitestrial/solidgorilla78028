@@ -174,20 +174,8 @@
           "value": "#0055ff",
           "options": [
             {
-              "name": "Blue",
-              "value": "#0055ff"
-            },
-            {
-              "name": "Red",
-              "value": "#ff0000"
-            },
-            {
-              "name": "Green",
-              "value": "#008000"
-            },
-            {
-              "name": "Orange",
-              "value": "#ff6600"
+              "name": "Transparent",
+              "value": "transparent"
             },
             {
               "name": "Black",
@@ -207,28 +195,16 @@
           "value": "#0044cc",
           "options": [
             {
-              "name": "Dark Blue",
-              "value": "#0044cc"
-            },
-            {
-              "name": "Dark Red",
-              "value": "#cc0000"
-            },
-            {
-              "name": "Dark Green",
-              "value": "#006600"
-            },
-            {
-              "name": "Dark Orange",
-              "value": "#cc5500"
+              "name": "Transparent",
+              "value": "transparent"
             },
             {
               "name": "Black",
               "value": "#000000"
             },
             {
-              "name": "Gray",
-              "value": "#666666"
+              "name": "White",
+              "value": "#ffffff"
             }
           ]
         },
@@ -240,20 +216,17 @@
           "value": "#ffffff",
           "options": [
             {
-              "name": "White",
-              "value": "#ffffff"
+              "name": "Transparent",
+              "value": "transparent"
             },
+            
             {
               "name": "Black",
               "value": "#000000"
             },
             {
-              "name": "Blue",
-              "value": "#0055ff"
-            },
-            {
-              "name": "Red",
-              "value": "#ff0000"
+              "name": "White",
+              "value": "#ffffff"
             }
           ]
         },
@@ -265,20 +238,16 @@
           "value": "#0055ff",
           "options": [
             {
-              "name": "Blue",
-              "value": "#0055ff"
-            },
-            {
-              "name": "Red",
-              "value": "#ff0000"
-            },
-            {
-              "name": "Green",
-              "value": "#008000"
+              "name": "Transparent",
+              "value": "transparent"
             },
             {
               "name": "Black",
               "value": "#000000"
+            },
+            {
+              "name": "White",
+              "value": "#ffffff"
             }
           ]
         },
