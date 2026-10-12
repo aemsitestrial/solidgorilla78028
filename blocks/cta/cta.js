@@ -1,5 +1,5 @@
 const DEFAULTS = {
-  text_cta: '',
+  textcta: '',
   ctaLink: '',
   icon: null,
   iconPosition: 'before',
@@ -13,7 +13,7 @@ const DEFAULTS = {
   borderColor: '',
   ctaWidth: 'auto',
   alignment: 'left',
-  textSize: 'medium',
+  arrowColor: 'black',
   contentLayout: 'normal',
 };
 
@@ -41,14 +41,18 @@ function normalizeShape(value) {
   return DEFAULTS.shape;
 }
 
-function createIcon(icon, size) {
+function createIcon(icon, size, arrowColor) {
   if (!icon) {
     return null;
   }
 
   const image = icon.cloneNode(true);
 
-  image.classList.add('cta-icon');
+  image.classList.add(
+    'cta-icon',
+    `cta-icon-${arrowColor}`,
+  );
+
   image.style.width = `${size}px`;
   image.style.height = `${size}px`;
 
@@ -57,7 +61,7 @@ function createIcon(icon, size) {
 
 function readBlockContent(block) {
   return {
-    text_cta: getFieldValue(block, 0, ''),
+    textcta: getFieldValue(block, 0, ''),
     ctaLink: getFieldValue(block, 1, ''),
     icon: block.children[2]?.querySelector('img'),
     iconPosition: getFieldValue(block, 3, 'before'),
@@ -73,13 +77,13 @@ function readBlockContent(block) {
     borderColor: getFieldValue(block, 11, ''),
     ctaWidth: getFieldValue(block, 12, 'auto'),
     alignment: getFieldValue(block, 13, 'left'),
-    textSize: getFieldValue(block, 14, 'medium'),
+    arrowColor: getFieldValue(block, 14, 'black'),
     contentLayout: getFieldValue(block, 15, 'normal'),
   };
 }
 
 function createCta(data) {
-  if (!data.text_cta || !data.ctaLink) {
+  if (!data.textcta || !data.ctaLink) {
     return null;
   }
 
@@ -96,7 +100,7 @@ function createCta(data) {
 
   link.setAttribute(
     'aria-label',
-    data.text_cta,
+    data.textcta,
   );
 
   if (data.linkTarget === 'new-window') {
@@ -131,18 +135,15 @@ function createCta(data) {
       createIcon(
         data.icon,
         data.iconSize,
+        data.arrowColor,
       ),
     );
   }
 
   const text = document.createElement('span');
 
-  text.className = [
-    'cta-text',
-    `cta-text-${data.textSize}`,
-  ].join(' ');
-
-  text.textContent = data.text_cta;
+  text.className = 'cta-text';
+  text.textContent = data.textcta;
 
   link.append(text);
 
@@ -154,6 +155,7 @@ function createCta(data) {
       createIcon(
         data.icon,
         data.iconSize,
+        data.arrowColor,
       ),
     );
   }
@@ -189,9 +191,7 @@ export default function decorate(block) {
       default:
         break;
     }
-  }
 
-  if (cta) {
     block.append(cta);
   }
 }

@@ -171,7 +171,7 @@
           "valueType": "string",
           "name": "backgroundColor",
           "label": "Background Color",
-          "value": "#0055ff",
+          "value": "transparent",
           "options": [
             {
               "name": "Transparent",
@@ -192,7 +192,7 @@
           "valueType": "string",
           "name": "hoverBackgroundColor",
           "label": "Hover Background Color",
-          "value": "#0044cc",
+          "value": "transparent",
           "options": [
             {
               "name": "Transparent",
@@ -213,13 +213,12 @@
           "valueType": "string",
           "name": "textColor",
           "label": "Text Color",
-          "value": "#ffffff",
+          "value": "#000000",
           "options": [
             {
               "name": "Transparent",
               "value": "transparent"
             },
-            
             {
               "name": "Black",
               "value": "#000000"
@@ -235,7 +234,7 @@
           "valueType": "string",
           "name": "borderColor",
           "label": "Border Color",
-          "value": "#0055ff",
+          "value": "transparent",
           "options": [
             {
               "name": "Transparent",
@@ -296,25 +295,17 @@
         {
           "component": "select",
           "valueType": "string",
-          "name": "textSize",
-          "label": "Text Size",
-          "value": "medium",
+          "name": "arrowColor",
+          "label": "Arrow Color",
+          "value": "black",
           "options": [
             {
-              "name": "Small",
-              "value": "small"
+              "name": "Black",
+              "value": "black"
             },
             {
-              "name": "Medium",
-              "value": "medium"
-            },
-            {
-              "name": "Large",
-              "value": "large"
-            },
-            {
-              "name": "XLarge",
-              "value": "xlarge"
+              "name": "White",
+              "value": "white"
             }
           ]
         },

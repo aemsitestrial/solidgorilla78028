@@ -96,6 +96,7 @@
   min-width: 0;
   overflow-wrap: anywhere;
   font-family: inter, sans-serif;
+  font-size: 12px;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 0.01em;
@@ -103,22 +104,6 @@
 
 .cta-layout-space-between .cta-text {
   flex: 1;
-}
-
-.cta-text-small {
-  font-size: 14px;
-}
-
-.cta-text-medium {
-  font-size: 16px;
-}
-
-.cta-text-large {
-  font-size: 20px;
-}
-
-.cta-text-xlarge {
-  font-size: 24px;
 }
 
 .cta-icon {
@@ -144,6 +129,14 @@
 
 .cta-link:focus:not(:focus-visible) {
   outline: none;
+}
+
+.cta-icon-white {
+  filter: brightness(0) invert(1);
+}
+
+.cta-icon-black {
+  filter: brightness(0);
 }
 
 @media (width <= 767px) {
