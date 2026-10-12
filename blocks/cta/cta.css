@@ -32,17 +32,11 @@
 }
 
 .cta-link.cta-link-rounded {
-  border-radius: 0.375rem;
+  border-radius: 6px;
 }
 
 .cta-link.cta-link-pill {
   border-radius: 9999px;
-}
-
-.cta-link.cta-view-default.cta-link-pill,
-.cta-link.cta-view-default.cta-link-rounded,
-.cta-link.cta-view-default.cta-link-rectangle {
-  border-radius: 0;
 }
 
 .cta-link.cta-view-default {
@@ -64,53 +58,6 @@
   border-style: solid;
 }
 
-.cta-text {
-  display: inline-block;
-  min-width: 0;
-  overflow-wrap: anywhere;
-  font-family: Inter, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 100%;
-  letter-spacing: 0.01em;
-}
-
-.cta-icon {
-  display: block;
-  flex-shrink: 0;
-  object-fit: contain;
-}
-
-.cta-link:hover {
-  background-color: var(--cta-hover-bg, inherit);
-}
-
-.cta-link:focus {
-  outline: 3px solid currentcolor;
-  outline-offset: 3px;
-}
-
-.cta-link:focus-visible {
-  outline: 3px solid currentcolor;
-  outline-offset: 3px;
-}
-
-.cta-link:any-link:hover {
-  text-decoration: none;
-}
-
-.cta-link:focus:not(:focus-visible) {
-  outline: none;
-}
-
-.cta-width-full {
-  width: 100%;
-}
-
-.cta-link.cta-width-full-link {
-  width: 100%;
-}
-
 .cta-align-left {
   display: flex;
   justify-content: flex-start;
@@ -126,6 +73,79 @@
   justify-content: flex-end;
 }
 
+.cta-link.cta-width-half-link {
+  width: 50%;
+}
+
+.cta-link.cta-width-full-link {
+  width: 100%;
+}
+
+.cta-layout-normal {
+  display: inline-flex;
+}
+
+.cta-layout-space-between {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.cta-text {
+  display: inline-block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-family: inter, sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+}
+
+.cta-layout-space-between .cta-text {
+  flex: 1;
+}
+
+.cta-text-small {
+  font-size: 14px;
+}
+
+.cta-text-medium {
+  font-size: 16px;
+}
+
+.cta-text-large {
+  font-size: 20px;
+}
+
+.cta-text-xlarge {
+  font-size: 24px;
+}
+
+.cta-icon {
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.cta-link:hover {
+  background-color: var(--cta-hover-bg, inherit);
+  text-decoration: none;
+}
+
+.cta-link:focus {
+  outline: 3px solid currentcolor;
+  outline-offset: 3px;
+}
+
+.cta-link:focus-visible {
+  outline: 3px solid currentcolor;
+  outline-offset: 3px;
+}
+
+.cta-link:focus:not(:focus-visible) {
+  outline: none;
+}
+
 @media (width <= 767px) {
   .cta-link {
     max-width: 100%;
@@ -135,7 +155,11 @@
     overflow-wrap: anywhere;
   }
 
-  .cta-width-full .cta-link {
+  .cta-link.cta-width-half-link {
+    width: 100%;
+  }
+
+  .cta-link.cta-width-full-link {
     width: 100%;
   }
 }

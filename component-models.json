@@ -433,14 +433,6 @@
         "name": "backgroundColor",
         "label": "Background Color",
         "value": "#0055ff",
-        "condition": {
-          "===": [
-            {
-              "var": "ctaView"
-            },
-            "primary"
-          ]
-        },
         "options": [
           {
             "name": "Blue",
@@ -474,14 +466,6 @@
         "name": "hoverBackgroundColor",
         "label": "Hover Background Color",
         "value": "#0044cc",
-        "condition": {
-          "===": [
-            {
-              "var": "ctaView"
-            },
-            "primary"
-          ]
-        },
         "options": [
           {
             "name": "Dark Blue",
@@ -540,17 +524,6 @@
         "name": "borderColor",
         "label": "Border Color",
         "value": "#0055ff",
-        "condition": {
-          "in": [
-            {
-              "var": "ctaView"
-            },
-            [
-              "primary",
-              "secondary"
-            ]
-          ]
-        },
         "options": [
           {
             "name": "Blue",
@@ -582,6 +555,10 @@
             "value": "auto"
           },
           {
+            "name": "Half Width",
+            "value": "half"
+          },
+          {
             "name": "Full Width",
             "value": "full"
           }
@@ -605,6 +582,48 @@
           {
             "name": "Right",
             "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "textSize",
+        "label": "Text Size",
+        "value": "medium",
+        "options": [
+          {
+            "name": "Small",
+            "value": "small"
+          },
+          {
+            "name": "Medium",
+            "value": "medium"
+          },
+          {
+            "name": "Large",
+            "value": "large"
+          },
+          {
+            "name": "XLarge",
+            "value": "xlarge"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "contentLayout",
+        "label": "Content Layout",
+        "value": "normal",
+        "options": [
+          {
+            "name": "Normal",
+            "value": "normal"
+          },
+          {
+            "name": "Space Between",
+            "value": "space-between"
           }
         ]
       }

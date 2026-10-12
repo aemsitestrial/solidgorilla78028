@@ -13,6 +13,8 @@ const DEFAULTS = {
   borderColor: '',
   ctaWidth: 'auto',
   alignment: 'left',
+  textSize: 'medium',
+  contentLayout: 'normal',
 };
 
 const ALLOWED_SHAPES = [
@@ -47,7 +49,6 @@ function createIcon(icon, size) {
   const image = icon.cloneNode(true);
 
   image.classList.add('cta-icon');
-
   image.style.width = `${size}px`;
   image.style.height = `${size}px`;
 
@@ -72,6 +73,8 @@ function readBlockContent(block) {
     borderColor: getFieldValue(block, 11, ''),
     ctaWidth: getFieldValue(block, 12, 'auto'),
     alignment: getFieldValue(block, 13, 'left'),
+    textSize: getFieldValue(block, 14, 'medium'),
+    contentLayout: getFieldValue(block, 15, 'normal'),
   };
 }
 
@@ -86,9 +89,15 @@ function createCta(data) {
     'cta-link',
     `cta-link-${data.shape}`,
     `cta-view-${data.ctaView}`,
+    `cta-layout-${data.contentLayout}`,
   ].join(' ');
 
   link.href = data.ctaLink;
+
+  link.setAttribute(
+    'aria-label',
+    data.text_cta,
+  );
 
   if (data.linkTarget === 'new-window') {
     link.target = '_blank';
@@ -116,7 +125,7 @@ function createCta(data) {
 
   if (
     data.icon
-        && data.iconPosition === 'before'
+    && data.iconPosition === 'before'
   ) {
     link.append(
       createIcon(
@@ -128,14 +137,18 @@ function createCta(data) {
 
   const text = document.createElement('span');
 
-  text.className = 'cta-text';
+  text.className = [
+    'cta-text',
+    `cta-text-${data.textSize}`,
+  ].join(' ');
+
   text.textContent = data.text_cta;
 
   link.append(text);
 
   if (
     data.icon
-        && data.iconPosition === 'after'
+    && data.iconPosition === 'after'
   ) {
     link.append(
       createIcon(
@@ -159,11 +172,22 @@ export default function decorate(block) {
     `cta-align-${data.alignment}`,
   );
 
-  if (data.ctaWidth === 'full') {
-    block.classList.add('cta-width-full');
+  if (cta) {
+    switch (data.ctaWidth) {
+      case 'half':
+        cta.classList.add(
+          'cta-width-half-link',
+        );
+        break;
 
-    if (cta) {
-      cta.classList.add('cta-width-full-link');
+      case 'full':
+        cta.classList.add(
+          'cta-width-full-link',
+        );
+        break;
+
+      default:
+        break;
     }
   }
 
