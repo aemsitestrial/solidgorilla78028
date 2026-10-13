@@ -11,10 +11,18 @@ const DEFAULTS = {
   hoverBackgroundColor: '',
   textColor: '',
   borderColor: '',
+  borderWidth: '1',
+  borderRadius: '9999',
+  backdropBlur: '8',
+  hoverTextColor: '',
   ctaWidth: 'auto',
   alignment: 'left',
   arrowColor: 'black',
   contentLayout: 'normal',
+  buttonSize: 'default',
+  fontWeight: '500',
+  typographyStyle: '500',
+  state: 'default',
 };
 
 const ALLOWED_SHAPES = [
@@ -75,10 +83,18 @@ function readBlockContent(block) {
     hoverBackgroundColor: getFieldValue(block, 9, ''),
     textColor: getFieldValue(block, 10, ''),
     borderColor: getFieldValue(block, 11, ''),
-    ctaWidth: getFieldValue(block, 12, 'auto'),
-    alignment: getFieldValue(block, 13, 'left'),
-    arrowColor: getFieldValue(block, 14, 'black'),
-    contentLayout: getFieldValue(block, 15, 'normal'),
+    borderWidth: getFieldValue(block, 12, '1'),
+    borderRadius: getFieldValue(block, 13, '9999'),
+    backdropBlur: getFieldValue(block, 14, '8'),
+    hoverTextColor: getFieldValue(block, 15, ''),
+    ctaWidth: getFieldValue(block, 16, 'auto'),
+    alignment: getFieldValue(block, 17, 'left'),
+    arrowColor: getFieldValue(block, 18, 'black'),
+    contentLayout: getFieldValue(block, 19, 'normal'),
+    buttonSize: getFieldValue(block, 20, 'default'),
+    fontWeight: getFieldValue(block, 21, '500'),
+    typographyStyle: getFieldValue(block, 22, '500'),
+    state: getFieldValue(block, 23, 'default'),
   };
 }
 
@@ -94,6 +110,9 @@ function createCta(data) {
     `cta-link-${data.shape}`,
     `cta-view-${data.ctaView}`,
     `cta-layout-${data.contentLayout}`,
+    `cta-size-${data.buttonSize}`,
+    `cta-state-${data.state}`,
+    `cta-typography-${data.typographyStyle}`,
   ].join(' ');
 
   link.href = data.ctaLink;
@@ -102,6 +121,30 @@ function createCta(data) {
     'aria-label',
     data.textcta,
   );
+
+  if (
+    data.state === 'disabled'
+    || data.state === 'loading'
+  ) {
+    link.setAttribute(
+      'aria-disabled',
+      'true',
+    );
+
+    link.tabIndex = -1;
+
+    link.addEventListener(
+      'click',
+      (event) => event.preventDefault(),
+    );
+  }
+
+  if (data.state === 'loading') {
+    link.setAttribute(
+      'aria-busy',
+      'true',
+    );
+  }
 
   if (data.linkTarget === 'new-window') {
     link.target = '_blank';
@@ -120,6 +163,17 @@ function createCta(data) {
     link.style.borderColor = data.borderColor;
   }
 
+  link.style.borderWidth = `${data.borderWidth}px`;
+
+  link.style.borderRadius = `${data.borderRadius}px`;
+
+  link.style.backdropFilter = `blur(${data.backdropBlur}px)`;
+
+  link.style.setProperty(
+    '--cta-font-weight',
+    data.typographyStyle || data.fontWeight,
+  );
+
   if (data.hoverBackgroundColor) {
     link.style.setProperty(
       '--cta-hover-bg',
@@ -127,17 +181,26 @@ function createCta(data) {
     );
   }
 
+  if (data.hoverTextColor) {
+    link.style.setProperty(
+      '--cta-hover-text',
+      data.hoverTextColor,
+    );
+  }
+
   if (
     data.icon
     && data.iconPosition === 'before'
   ) {
-    link.append(
-      createIcon(
-        data.icon,
-        data.iconSize,
-        data.arrowColor,
-      ),
+    const icon = createIcon(
+      data.icon,
+      data.iconSize,
+      data.arrowColor,
     );
+
+    if (icon) {
+      link.append(icon);
+    }
   }
 
   const text = document.createElement('span');
@@ -151,13 +214,15 @@ function createCta(data) {
     data.icon
     && data.iconPosition === 'after'
   ) {
-    link.append(
-      createIcon(
-        data.icon,
-        data.iconSize,
-        data.arrowColor,
-      ),
+    const icon = createIcon(
+      data.icon,
+      data.iconSize,
+      data.arrowColor,
     );
+
+    if (icon) {
+      link.append(icon);
+    }
   }
 
   return link;
@@ -174,24 +239,26 @@ export default function decorate(block) {
     `cta-align-${data.alignment}`,
   );
 
-  if (cta) {
-    switch (data.ctaWidth) {
-      case 'half':
-        cta.classList.add(
-          'cta-width-half-link',
-        );
-        break;
-
-      case 'full':
-        cta.classList.add(
-          'cta-width-full-link',
-        );
-        break;
-
-      default:
-        break;
-    }
-
-    block.append(cta);
+  if (!cta) {
+    return;
   }
+
+  switch (data.ctaWidth) {
+    case 'half':
+      cta.classList.add(
+        'cta-width-half-link',
+      );
+      break;
+
+    case 'full':
+      cta.classList.add(
+        'cta-width-full-link',
+      );
+      break;
+
+    default:
+      break;
+  }
+
+  block.append(cta);
 }

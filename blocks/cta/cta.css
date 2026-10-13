@@ -10,21 +10,21 @@
   justify-content: center;
   width: auto;
   max-width: 100%;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
+  min-width: 44px;
+  min-height: 44px;
+  gap: 8px;
+  padding: 12px 16px 12px 24px;
+  border: 1px solid transparent;
   color: #000;
   background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 0;
-  font: inherit;
-  font-weight: inherit;
-  line-height: 1.2;
   text-decoration: none;
   cursor: pointer;
   transition:
     background-color 200ms ease,
     color 200ms ease,
-    border-color 200ms ease;
+    border-color 200ms ease,
+    filter 200ms ease,
+    transform 200ms ease;
 }
 
 .cta-link.cta-link-rectangle {
@@ -46,16 +46,67 @@
   box-shadow: none;
 }
 
-.cta-link.cta-view-primary {
-  padding: 12px 16px 12px 24px;
+.cta-link.cta-view-primary,
+.cta-link.cta-view-secondary,
+.cta-link.cta-view-tertiary,
+.cta-link.cta-view-white-filled {
   gap: 8px;
+}
+
+/* PRIMARY */
+
+.cta-link.cta-view-primary {
+  min-height: 50px;
+  color: #d9d9d9;
+  background: #0c0c0d;
+  border: 1px solid #303030;
+  backdrop-filter: blur(8px);
+
+  --cta-hover-bg-default: #303030;
+}
+
+/* SECONDARY */
+
+.cta-link.cta-view-secondary {
+  min-height: 50px;
+  color: #303030;
+  background: transparent;
+  border: 1px solid #303030;
+  backdrop-filter: blur(8px);
+
+  --cta-hover-bg-default: #f3f3f3;
+}
+
+/* TERTIARY FIGMA STYLE */
+
+.cta-link.cta-view-tertiary {
+  min-height: 50px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #fff;
+
+  --cta-hover-bg-default: transparent;
+}
+
+/* WHITE FILLED VARIANT */
+
+.cta-link.cta-view-white-filled {
+  min-height: 50px;
+  color: #000;
+  background: #fff;
+  border: 2px solid #494c4e;
+  backdrop-filter: blur(8px);
+
+  --cta-hover-bg-default: #f3f3f3;
+}
+
+.cta-link.cta-size-default {
   min-height: 50px;
 }
 
-.cta-link.cta-view-secondary {
-  background: transparent;
-  border-width: 1px;
-  border-style: solid;
+.cta-link.cta-size-small {
+  min-height: 46px;
 }
 
 .cta-align-left {
@@ -91,19 +142,29 @@
   justify-content: space-between;
 }
 
+/* FIGMA TYPOGRAPHY */
+
 .cta-text {
   display: inline-block;
   min-width: 0;
   overflow-wrap: anywhere;
-  font-family: inter, sans-serif;
-  font-size: 12px;
-  font-weight: 500;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
   line-height: 100%;
   letter-spacing: 0.01em;
+  font-weight: var(--cta-font-weight, 500);
 }
 
 .cta-layout-space-between .cta-text {
   flex: 1;
+}
+
+.cta-typography-400 .cta-text {
+  font-weight: 400;
+}
+
+.cta-typography-500 .cta-text {
+  font-weight: 500;
 }
 
 .cta-icon {
@@ -112,10 +173,62 @@
   object-fit: contain;
 }
 
+/* HOVER */
+
 .cta-link:hover {
-  background-color: var(--cta-hover-bg, inherit);
+  background-color: var(
+    --cta-hover-bg,
+    var(--cta-hover-bg-default, inherit)
+  );
+  color: var(
+    --cta-hover-text,
+    inherit
+  );
   text-decoration: none;
 }
+
+/* ACTIVE */
+
+.cta-link:active {
+  transform: translateY(1px);
+  filter: brightness(95%);
+}
+
+/* DISABLED */
+
+.cta-link.cta-state-disabled,
+.cta-link.cta-state-disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* LOADING */
+
+.cta-link.cta-state-loading,
+.cta-link.cta-state-loading:hover {
+  cursor: progress;
+  pointer-events: none;
+}
+
+.cta-link.cta-state-loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 2px solid currentcolor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: cta-spin 800ms linear infinite;
+}
+
+@keyframes cta-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ACCESSIBILITY */
 
 .cta-link:focus {
   outline: 3px solid currentcolor;
@@ -131,6 +244,8 @@
   outline: none;
 }
 
+/* ARROW COLORS */
+
 .cta-icon-white {
   filter: brightness(0) invert(1);
 }
@@ -138,6 +253,24 @@
 .cta-icon-black {
   filter: brightness(0);
 }
+
+.cta-icon-dark-gray {
+  filter: brightness(0) invert(19%);
+}
+
+.cta-icon-light-gray {
+  filter: brightness(0) invert(85%);
+}
+
+.cta-icon-cool-gray {
+  filter: brightness(0) invert(89%);
+}
+
+.cta-icon-off-white {
+  filter: brightness(0) invert(95%);
+}
+
+/* MOBILE */
 
 @media (width <= 767px) {
   .cta-link {
@@ -157,8 +290,14 @@
   }
 }
 
+/* REDUCED MOTION */
+
 @media (prefers-reduced-motion: reduce) {
   .cta-link {
     transition: none;
+  }
+
+  .cta-link.cta-state-loading::after {
+    animation: none;
   }
 }
